@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "title": "Buy groceries",
+        "description": "Milk, eggs, bread",
+        "is_completed": false
+    },
+    {
+        "id": 2,
+        "title": "Call the doctor",
+        "description": "Schedule annual checkup",
+        "is_completed": false
+    },
+    {
+        "id": 3,
+        "title": "Fix the bike",
+        "description": null,
+        "is_completed": true
+    },
+    {
+        "id": 4,
+        "title": "Read Clean Code",
+        "description": "Finish chapters 5 and 6",
+        "is_completed": false
+    },
+    {
+        "id": 5,
+        "title": "Prepare presentation",
+        "description": "Slides for Monday meeting",
+        "is_completed": false
+    },
+    {
+        "id": 6,
+        "title": "Pay rent",
+        "description": null,
+        "is_completed": true
+    },
+    {
+        "id": 7,
+        "title": "Water the plants",
+        "description": "Living room and balcony",
+        "is_completed": false
+    },
+    {
+        "id": 8,
+        "title": "Update CV",
+        "description": "Add recent projects",
+        "is_completed": false
+    },
+    {
+        "id": 9,
+        "title": "Go for a run",
+        "description": "5km minimum",
+        "is_completed": true
+    },
+    {
+        "id": 10,
+        "title": "Clean the apartment",
+        "description": null,
+        "is_completed": false
+    },
+    {
+        "id": 11,
+        "title": "Buy birthday gift",
+        "description": "For Maria's birthday on Friday",
+        "is_completed": false
+    },
+    {
+        "id": 12,
+        "title": "Renew gym membership",
+        "description": null,
+        "is_completed": true
+    },
+    {
+        "id": 13,
+        "title": "Study FastAPI",
+        "description": "Focus on routers and middleware",
+        "is_completed": false
+    },
+    {
+        "id": 14,
+        "title": "Call mom",
+        "description": null,
+        "is_completed": true
+    },
+    {
+        "id": 15,
+        "title": "Fix login bug",
+        "description": "Token not refreshing correctly",
+        "is_completed": false
+    },
+    {
+        "id": 16,
+        "title": "Write unit tests",
+        "description": "Cover all endpoints",
+        "is_completed": false
+    },
+    {
+        "id": 17,
+        "title": "Book flights",
+        "description": "Madrid to Lisbon in August",
+        "is_completed": false
+    },
+    {
+        "id": 18,
+        "title": "Review pull request",
+        "description": "Check Carlos's branch",
+        "is_completed": true
+    },
+    {
+        "id": 19,
+        "title": "Set up Docker",
+        "description": "Containerize the API",
+        "is_completed": false
+    },
+    {
+        "id": 20,
+        "title": "Organize Obsidian notes",
+        "description": "AWS and Python sections",
+        "is_completed": false
+    },
+    {
+        "id": 21,
+        "title": "Buy new headphones",
+        "description": null,
+        "is_completed": true
+    },
+    {
+        "id": 22,
+        "title": "Deploy to production",
+        "description": "Use EC2 instance",
+        "is_completed": false
+    },
+    {
+        "id": 23,
+        "title": "Learn Docker Compose",
+        "description": null,
+        "is_completed": false
+    },
+    {
+        "id": 24,
+        "title": "Send invoice",
+        "description": "To client before end of month",
+        "is_completed": true
+    },
+    {
+        "id": 25,
+        "title": "Set up linter",
+        "description": "Configure flake8 or ruff",
+        "is_completed": false
+    },
+    {
+        "id": 26,
+        "title": "Backup hard drive",
+        "description": null,
+        "is_completed": false
+    },
+    {
+        "id": 27,
+        "title": "Watch system design course",
+        "description": "Episode 4 onwards",
+        "is_completed": false
+    },
+    {
+        "id": 28,
+        "title": "Reply to emails",
+        "description": null,
+        "is_completed": true
+    },
+    {
+        "id": 29,
+        "title": "Create LinkedIn post",
+        "description": "About the todolist project",
+        "is_completed": false
+    },
+    {
+        "id": 30,
+        "title": "Refactor storage module",
+        "description": "Improve error handling",
+        "is_completed": false
+    }
+]

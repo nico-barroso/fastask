@@ -6,5 +6,5 @@ app = FastAPI()
 
 
 @app.get("/", response_model=ApiResponse)
-def root():
+async def root():
     return ApiResponse(success=True, message="Welcome, TaskApi is working!", data=None)

@@ -8,14 +8,14 @@ class TaskBase(BaseModel):
     description: Optional[str] = Field(default=None, max_length=500)
 
 class CreateTask(TaskBase):
-    is_compleated : bool = False
+    is_completed : bool = False
 
 class GetTask(TaskBase):
     id: int
-    is_compleated : bool
+    is_completed : bool
 
 class UpdateTask(BaseModel):
     title: Optional[str] = Field(default=None, max_length=100)
     description: Optional[str] = Field(default=None, max_length=500)
-    is_compleated: Optional[bool] = None
+    is_completed: Optional[bool] = None
 

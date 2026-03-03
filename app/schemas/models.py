@@ -9,6 +9,7 @@ class TaskBase(BaseModel):
 
 class CreateTask(TaskBase):
     is_completed : bool = False
+    is_deleted : bool = False
 
 class GetTask(TaskBase):
     id: int

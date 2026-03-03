@@ -1,177 +1,716 @@
 [
   {
-    "id": 1,
+    "id": "3c2fbe3b-f61f-4464-9f48-c0b2261aebdd",
     "title": "Buy groceries",
-    "description": "Milk, eggs, bread",
-    "is_completed": false
+    "description": "Waiting for feedback",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 3,
-    "title": "Fix the bike",
-    "description": null,
+    "id": "dd57e0e6-a68f-48fe-9066-eff538149daa",
+    "title": "Call the doctor",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "7cb3cdae-0526-4066-a834-b326f1028bb9",
+    "title": "Fix the bug",
+    "description": "Blocked by other task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "57c6d3fa-9ed7-4ff3-8fd1-9e1b071aa753",
+    "title": "Write tests",
+    "description": "Solo task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "7816a160-a562-4608-8d71-160035b69763",
+    "title": "Review PR",
+    "description": "Waiting for feedback",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "9a4d88b0-42da-492c-91af-ee5da0a2c1fc",
+    "title": "Update docs",
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "6d41fdad-dc6c-4fc4-bdb1-238090570339",
+    "title": "Deploy to production",
+    "description": "Solo task",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "485b55e2-f384-4e47-ae92-40b9cd987dce",
+    "title": "Send invoice",
+    "description": "High priority",
     "is_completed": true,
     "is_deleted": true
   },
   {
-    "id": 4,
-    "title": "Read Clean Code",
-    "description": "Finish chapters 5 and 6",
-    "is_completed": false
+    "id": "1bec494c-f96c-4914-a584-21fb8473f713",
+    "title": "Schedule meeting",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 5,
-    "title": "Prepare presentation",
-    "description": "Slides for Monday meeting",
-    "is_completed": false
+    "id": "2a1ea301-96ae-4280-9255-21f886e4e9e7",
+    "title": "Clean desk",
+    "description": "Solo task",
+    "is_completed": false,
+    "is_deleted": true
   },
   {
-    "id": 6,
-    "title": "Pay rent",
-    "description": null,
-    "is_completed": true
+    "id": "99f8a546-0256-4443-83c3-995162f3e593",
+    "title": "Read emails",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 7,
-    "title": "Water the plants",
-    "description": "Living room and balcony",
-    "is_completed": false
+    "id": "d56076b2-8d91-4d08-a099-7b352134b180",
+    "title": "Backup database",
+    "description": "Waiting for feedback",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 8,
-    "title": "Update CV",
-    "description": "Add recent projects",
-    "is_completed": false
+    "id": "e0a36271-3b86-44cb-bc2e-3aab603dbb16",
+    "title": "Update dependencies",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 9,
+    "id": "c6575d1d-d907-4c3e-92fd-069057cc678a",
+    "title": "Write blog post",
+    "description": "In progress",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "40b29874-29d4-4e7a-bcdf-0605c31408ff",
+    "title": "Learn FastAPI",
+    "description": "Solo task",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "0e4867f1-700e-414f-94f4-469e5ad05de2",
+    "title": "Practice guitar",
+    "description": "Solo task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "89be369e-f713-46be-866d-65bd1662c398",
     "title": "Go for a run",
-    "description": "5km minimum",
-    "is_completed": true
+    "description": "Solo task",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 10,
-    "title": "Clean the apartment",
-    "description": null,
-    "is_completed": false
+    "id": "a5e90d51-cbb5-4f51-9802-7cf76f0c522c",
+    "title": "Cook dinner",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 11,
-    "title": "Buy birthday gift",
-    "description": "For Maria's birthday on Friday",
-    "is_completed": false
+    "id": "95297690-b4ec-4456-8dbf-f0e438fa1ada",
+    "title": "Water plants",
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 12,
-    "title": "Renew gym membership",
-    "description": null,
-    "is_completed": true
+    "id": "5f249200-2d47-42d8-a186-3066afcd172e",
+    "title": "Pay bills",
+    "description": "Low priority",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 13,
-    "title": "Study FastAPI",
-    "description": "Focus on routers and middleware",
-    "is_completed": false
-  },
-  {
-    "id": 14,
-    "title": "Call mom",
-    "description": null,
-    "is_completed": true
-  },
-  {
-    "id": 15,
-    "title": "Fix login bug",
-    "description": "Token not refreshing correctly",
-    "is_completed": false
-  },
-  {
-    "id": 16,
-    "title": "Write unit tests",
-    "description": "Cover all endpoints",
-    "is_completed": false
-  },
-  {
-    "id": 17,
+    "id": "a30c337a-c675-449f-bb29-e7637728f06e",
     "title": "Book flights",
-    "description": "Madrid to Lisbon in August",
-    "is_completed": false
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 18,
-    "title": "Review pull request",
-    "description": "Check Carlos's branch",
-    "is_completed": true
+    "id": "498c2cab-95d1-4478-b877-c9bed238d318",
+    "title": "Renew passport",
+    "description": "Needs review",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 19,
-    "title": "Set up Docker",
-    "description": "Containerize the API",
-    "is_completed": false
+    "id": "08df58d5-9bbc-4ae2-bf53-3910b8f9ecb3",
+    "title": "Call mom",
+    "description": "Low priority",
+    "is_completed": false,
+    "is_deleted": true
   },
   {
-    "id": 20,
-    "title": "Organize Obsidian notes",
-    "description": "AWS and Python sections",
-    "is_completed": false
+    "id": "89090438-f2dd-470e-9578-dde8ca8ebd2c",
+    "title": "Buy birthday gift",
+    "description": "In progress",
+    "is_completed": true,
+    "is_deleted": true
   },
   {
-    "id": 21,
-    "title": "Buy new headphones",
-    "description": null,
-    "is_completed": true
+    "id": "3cb02878-4c0d-4c41-aed0-8c338ed10a3c",
+    "title": "Organize files",
+    "description": "Team effort",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 22,
-    "title": "Deploy to production",
-    "description": "Use EC2 instance",
-    "is_completed": false
+    "id": "8876096e-99d5-4019-910e-a49f7e6d9497",
+    "title": "Watch tutorial",
+    "description": "Blocked by other task",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 23,
-    "title": "Learn Docker Compose",
-    "description": null,
-    "is_completed": false
+    "id": "73f8da64-70c8-43f1-a7fb-4c6c60cfa2c7",
+    "title": "Submit report",
+    "description": "Low priority",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 24,
-    "title": "Send invoice",
-    "description": "To client before end of month",
-    "is_completed": true
+    "id": "1fb172ba-f774-4f3b-a084-429bbf38124e",
+    "title": "Fix typo",
+    "description": "Blocked by other task",
+    "is_completed": true,
+    "is_deleted": true
   },
   {
-    "id": 25,
-    "title": "Set up linter",
-    "description": "Configure flake8 or ruff",
-    "is_completed": false
+    "id": "9fc4f3d1-c6bf-4d2b-bdf3-b3d2222d718c",
+    "title": "Refactor code",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 26,
-    "title": "Backup hard drive",
-    "description": null,
-    "is_completed": false
+    "id": "3fe22c83-06fa-4990-a455-66bc617a6b5a",
+    "title": "Design UI",
+    "description": "Blocked by other task",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 27,
-    "title": "Watch system design course",
-    "description": "Episode 4 onwards",
-    "is_completed": false
+    "id": "488251a8-e2ed-4004-95b6-b33971784d81",
+    "title": "Create mockup",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": true
   },
   {
-    "id": 28,
-    "title": "Reply to emails",
-    "description": null,
-    "is_completed": true
+    "id": "beed48d3-b4e0-48f4-80cf-b7b38be2e44b",
+    "title": "Write readme",
+    "description": "Waiting for feedback",
+    "is_completed": true,
+    "is_deleted": false
   },
   {
-    "id": 29,
-    "title": "Create LinkedIn post",
-    "description": "About the todolist project",
-    "is_completed": false
+    "id": "e8eafb5c-26e1-4fd8-846e-ded7c9228505",
+    "title": "Setup CI/CD",
+    "description": "Team effort",
+    "is_completed": false,
+    "is_deleted": false
   },
   {
-    "id": 30,
-    "title": "Refactor storage module",
-    "description": "Improve error handling",
-    "is_completed": false
+    "id": "7083b5d8-73c3-4890-8b42-7094156ec432",
+    "title": "Configure Docker",
+    "description": "Solo task",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "e6487b2b-464e-4ddf-8e2a-592e34035498",
+    "title": "Add logging",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "c55518e4-834a-4912-83ce-57b39692d740",
+    "title": "Handle errors",
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "7d80efa8-74fd-420f-8dd1-acf057b01318",
+    "title": "Write migration",
+    "description": "Team effort",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "048efc04-397c-4bed-8c80-544aecc8d491",
+    "title": "Seed database",
+    "description": "Low priority",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "92de3c39-4bdc-45cd-b4f8-6eaf80cdface",
+    "title": "Test endpoints",
+    "description": "Quick task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "94691c3c-f3d2-4dc0-989e-185d5714762b",
+    "title": "Fix 404 page",
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "10a144e9-6433-4758-a2f3-eec364efd8c3",
+    "title": "Add pagination",
+    "description": "Waiting for feedback",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "7f91f367-341b-4c83-b0cc-153bab94ba8c",
+    "title": "Implement auth",
+    "description": "In progress",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "7c46dba8-59e3-4ff6-8a66-292c1a2e09a8",
+    "title": "Add rate limiting",
+    "description": "Waiting for feedback",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "6e1ff31a-8cd9-4681-a89f-9122413413cb",
+    "title": "Write changelog",
+    "description": "Team effort",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "23c81c83-bb57-4aaa-94f0-a49d1c1b5c41",
+    "title": "Tag release",
+    "description": "In progress",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "afcf760b-ffe3-424f-8a03-2637b14b3876",
+    "title": "Close issues",
+    "description": "Waiting for feedback",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "c699b12f-0900-4dc6-8e0b-e33de37e70be",
+    "title": "Archive project",
+    "description": "In progress",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "1cfdf0f0-c489-4788-98e1-37a9c1cf83f4",
+    "title": "Export data",
+    "description": "Blocked by other task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "d9f98c89-1d86-4070-afb9-a6e4f92674d5",
+    "title": "Import CSV",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "243ed862-9fd5-422e-acba-f81e29028900",
+    "title": "Clean cache",
+    "description": "Blocked by other task",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "818a13db-5a7d-44ac-8162-aa290e859199",
+    "title": "Optimize queries",
+    "description": "Solo task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "b2af9565-ae3c-4f46-af28-e18e59d58097",
+    "title": "Add indexes",
+    "description": "Low priority",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "c0dd6792-9ec4-4fee-8d41-c9ce54a51647",
+    "title": "Profile app",
+    "description": "Solo task",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "ea0613be-6747-45ab-ae10-77227bd713c7",
+    "title": "Fix memory leak",
+    "description": "Team effort",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "088d4fa7-c2c0-4f0f-91e2-3b5d90057357",
+    "title": "Update README",
+    "description": "Team effort",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "a6a1a7e4-0da2-407e-b1cc-78e63c09559a",
+    "title": "Write unit tests",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "2c1418fa-641f-478e-9ffc-7bda663505a9",
+    "title": "Write e2e tests",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "d318c460-81a3-4336-9107-18ab2c2e8b62",
+    "title": "Setup monitoring",
+    "description": "Low priority",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "b4fb44de-8900-4d28-a897-4bc80d3e7db3",
+    "title": "Add metrics",
+    "description": "Low priority",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "d1222f5d-9421-4e60-9047-03788bb195c7",
+    "title": "Create dashboard",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "7f231b41-a8da-4f73-bd68-8e2d8906e1bb",
+    "title": "Rotate secrets",
+    "description": "Needs review",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "29b5c8d6-c080-45c0-8d16-a2611e37a3f7",
+    "title": "Audit permissions",
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "d34cd003-ce0f-4f30-afe5-29b496481580",
+    "title": "Review logs",
+    "description": "Needs review",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "6554f9d4-f171-472f-9879-c1c33661644d",
+    "title": "Check alerts",
+    "description": "Waiting for feedback",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "0d6d4097-579f-4124-9cd7-28acf312c9a8",
+    "title": "Update firewall",
+    "description": "High priority",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "0de2b018-dd3d-4f91-9ad8-ed253ea218e1",
+    "title": "Scan for vulnerabilities",
+    "description": "Waiting for feedback",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "8373ec6c-6782-4075-9ba8-9025a72aa5d8",
+    "title": "Patch server",
+    "description": "Low priority",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "3ab0fae1-0761-4277-ba71-c7baa34462df",
+    "title": "Renew SSL cert",
+    "description": "Waiting for feedback",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "f761b7eb-8fe8-4e2d-abd1-856ef30664c2",
+    "title": "Update DNS",
+    "description": "In progress",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "900ad740-13b2-4baf-b413-9892ad29f333",
+    "title": "Configure CDN",
+    "description": "Blocked by other task",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "0e96d415-231b-45fd-8d8d-32c50ee561ba",
+    "title": "Compress images",
+    "description": "Requires research",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "3cef5b69-f494-4a83-b3d1-577e5b4d56b0",
+    "title": "Lazy load assets",
+    "description": "Blocked by other task",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "c5fb8c92-ebd5-47b4-b026-09246acdcd72",
+    "title": "Minify CSS",
+    "description": "Needs review",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "a29fc55a-60c2-47f2-8bac-7149f5434798",
+    "title": "Bundle JS",
+    "description": "Needs review",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "4c6b1673-8848-4393-b12b-721f292e7dd2",
+    "title": "Audit performance",
+    "description": "Blocked by other task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "a7df496d-2437-4453-b5a2-864783d2864c",
+    "title": "Fix broken links",
+    "description": "Team effort",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "bd214208-9297-4919-8646-6d390c2646ea",
+    "title": "Update sitemap",
+    "description": "Team effort",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "244be5db-7969-488a-bfa2-756fb2d18f5c",
+    "title": "Submit to Google",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "f86ec8ed-310b-4fd2-9b02-9cb4c8b37f8a",
+    "title": "Add meta tags",
+    "description": "High priority",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "5694a6e5-a0fa-4484-89e6-ef7219b5c4bd",
+    "title": "Write copy",
+    "description": "High priority",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "bd884dd3-f3bd-4473-99ee-5902a548f56b",
+    "title": "Translate content",
+    "description": "Solo task",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "d9277e5f-3a99-486a-93ed-f711a3b0a711",
+    "title": "Add dark mode",
+    "description": "In progress",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "b3b80a25-a283-4ed9-b887-1ed522425c4a",
+    "title": "Fix responsive layout",
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "6d6a805f-68b6-4305-90a1-12c9993b1e62",
+    "title": "Test on mobile",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "f767364b-2b58-4900-93aa-4229797249db",
+    "title": "Fix Safari bug",
+    "description": "Low priority",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "7103359e-355a-4177-9069-bc0081e97884",
+    "title": "Add animations",
+    "description": "Waiting for feedback",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "9f34b008-cf5d-487f-a6d1-e989b2f3b09b",
+    "title": "Improve accessibility",
+    "description": "Low priority",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "57569ae2-3701-48f1-bce9-5a924766ee05",
+    "title": "Add keyboard shortcuts",
+    "description": "Solo task",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "69ae6d73-fc9f-4180-8b4f-9e4624376e45",
+    "title": "Write user guide",
+    "description": "Needs review",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "b267b44a-b0a5-403b-b624-bf93f6ae06c8",
+    "title": "Record demo",
+    "description": "Solo task",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "5a9e88a7-852a-47b0-8f82-67f0c5520aba",
+    "title": "Prepare slides",
+    "description": "Needs review",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "38738d92-5f7c-45ac-a39b-ddbd93494a6b",
+    "title": "Practice presentation",
+    "description": "Requires research",
+    "is_completed": true,
+    "is_deleted": true
+  },
+  {
+    "id": "8387563c-4eeb-4b56-934c-35efd1af71e7",
+    "title": "Send follow-up",
+    "description": "High priority",
+    "is_completed": true,
+    "is_deleted": false
+  },
+  {
+    "id": "4a157c98-304a-496e-a7b7-0bf0a2919158",
+    "title": "Update LinkedIn",
+    "description": "Team effort",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "f8dbc77d-b075-4e19-8555-5dd71f41c8a4",
+    "title": "Apply for job",
+    "description": "Low priority",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "id": "857d7231-bd75-43ec-846b-06a70b2978ec",
+    "title": "Review contract",
+    "description": "High priority",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "1daf64cc-afc3-4f6e-9218-7f2ee7de2c6a",
+    "title": "Sign NDA",
+    "description": "Team effort",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "2749affe-f4d7-4600-9b9a-b1989409121f",
+    "title": "Set up 2FA",
+    "description": "Waiting for feedback",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "e7d8538e-180a-451f-8b7a-2530d709eb9b",
+    "title": "Change password",
+    "description": "Low priority",
+    "is_completed": false,
+    "is_deleted": false
+  },
+  {
+    "id": "39541e22-c1e3-4bfc-9205-3904161b52d9",
+    "title": "Clear downloads folder",
+    "description": "Waiting for feedback",
+    "is_completed": false,
+    "is_deleted": true
+  },
+  {
+    "title": "hola",
+    "description": "me he creado con uid",
+    "is_completed": false,
+    "is_deleted": false,
+    "id": "cebcdd0a-7fd9-4241-9512-e0901d642d44"
+  },
+  {
+    "id": "79f48364-826e-44b9-8e7e-9293a235623e",
+    "title": "buenas",
+    "description": "segundo intento",
+    "is_completed": false,
+    "is_deleted": false
   }
 ]

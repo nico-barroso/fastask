@@ -1,4 +1,6 @@
 from fastapi import APIRouter, Query
+import uuid
+
 from data.data_handler import load_tasks, write_tasks
 from schemas.responses import ApiResponse
 from schemas.models import *
@@ -9,6 +11,7 @@ router = APIRouter(
     tags=["tasks"],
 )
 
+new_uuid = str(uuid.uuid4())
 
 @router.get("/", response_model=ApiResponse[list[GetTask]])
 async def get_tasks(
@@ -69,9 +72,13 @@ async def create_task(task: CreateTask):
     if any(t["title"] == task.title for t in tasks if not t["is_deleted"]):
         task_already_exists(task.title)
 
-    new_task = task.model_dump()
-    new_task["id"] = len(tasks) + 1
-    new_task["is_deleted"] = False
+    new_task = {
+        "id": str(uuid.uuid4()),
+        "title": task.title,
+        "description": task.description,
+        "is_completed": False,
+        "is_deleted": False,
+        }
 
     tasks.append(new_task)
     write_tasks(tasks)
@@ -80,7 +87,7 @@ async def create_task(task: CreateTask):
 
 
 @router.get("/{task_id}", response_model=ApiResponse[GetTask])
-async def get_task_by_id(task_id: int):
+async def get_task_by_id(task_id: str):
     tasks = [t for t in load_tasks() if not t["is_deleted"]]
 
     for t in tasks:
@@ -92,7 +99,7 @@ async def get_task_by_id(task_id: int):
 
 
 @router.patch("/{task_id}", response_model=ApiResponse[GetTask])
-async def update_task(task_id: int, task: UpdateTask):
+async def update_task(task_id: str, task: UpdateTask):
     tasks = load_tasks()
 
     for t in tasks:
@@ -107,7 +114,7 @@ async def update_task(task_id: int, task: UpdateTask):
 
 
 @router.patch("/{task_id}/complete", response_model=ApiResponse[GetTask])
-async def complete_task(task_id: int):
+async def complete_task(task_id: str):
     tasks = load_tasks()
 
     for t in tasks:
@@ -125,7 +132,7 @@ async def complete_task(task_id: int):
     
 
 @router.patch("/{task_id}/uncomplete", response_model=ApiResponse[GetTask])
-async def uncomplete_task(task_id: int):
+async def uncomplete_task(task_id: str):
     tasks = load_tasks()
 
     for t in tasks:
@@ -143,7 +150,7 @@ async def uncomplete_task(task_id: int):
     
     
 @router.patch("/{task_id}/restore", response_model=ApiResponse[GetTask])
-async def restore_task(task_id: int):
+async def restore_task(task_id: str):
     tasks = load_tasks()
 
     for t in tasks:
@@ -158,7 +165,7 @@ async def restore_task(task_id: int):
 
 
 @router.delete("/{task_id}", response_model=ApiResponse[GetTask])
-async def delete_task(task_id: int):
+async def delete_task(task_id: str):
     tasks = load_tasks()
 
     for t in tasks:
@@ -173,7 +180,7 @@ async def delete_task(task_id: int):
 
 
 @router.delete("/{task_id}/hard", response_model=ApiResponse[GetTask])
-async def hard_delete_task(task_id: int):
+async def hard_delete_task(task_id: str):
     tasks = load_tasks()
 
     deleted_task = next((t for t in tasks if t["id"] == task_id), None)

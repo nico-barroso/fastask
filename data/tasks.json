@@ -17,7 +17,7 @@
     "id": "7cb3cdae-0526-4066-a834-b326f1028bb9",
     "title": "Fix the bug",
     "description": "Blocked by other task",
-    "is_completed": false,
+    "is_completed": true,
     "is_deleted": false
   },
   {

@@ -6,14 +6,14 @@ from typing import Optional
 class TaskBase(BaseModel):
     title: str = Field(min_length=1, max_length=100)
     description: Optional[str] = Field(default=None, max_length=500)
-
+class GetTask(BaseModel):
+    id: int
+    is_completed : bool
+    title: str = Field(min_length=1, max_length=100)
+    description: Optional[str] = Field(default=None, max_length=500)
 class CreateTask(TaskBase):
     is_completed : bool = False
     is_deleted : bool = False
-
-class GetTask(TaskBase):
-    id: int
-    is_completed : bool
 
 class UpdateTask(BaseModel):
     title: Optional[str] = Field(default=None, max_length=100)

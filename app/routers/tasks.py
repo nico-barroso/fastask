@@ -11,7 +11,6 @@ router = APIRouter(
     tags=["tasks"],
 )
 
-new_uuid = str(uuid.uuid4())
 
 @router.get("/", response_model=ApiResponse[list[GetTask]])
 async def get_tasks(
@@ -113,7 +112,7 @@ async def update_task(task_id: str, task: UpdateTask):
     task_not_found(task_id)
 
 
-@router.patch("/{task_id}/complete", response_model=ApiResponse[GetTask])
+@router.patch("/{task_id}/completed", response_model=ApiResponse[GetTask])
 async def complete_task(task_id: str):
     tasks = load_tasks()
 
@@ -131,7 +130,7 @@ async def complete_task(task_id: str):
     task_not_found(task_id)
     
 
-@router.patch("/{task_id}/uncomplete", response_model=ApiResponse[GetTask])
+@router.patch("/{task_id}/uncompleted", response_model=ApiResponse[GetTask])
 async def uncomplete_task(task_id: str):
     tasks = load_tasks()
 

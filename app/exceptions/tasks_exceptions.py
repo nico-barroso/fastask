@@ -21,6 +21,10 @@ def task_already_restored(task_id: int):
 def task_already_completed(task_id: int):
     raise HTTPException(status_code=409, detail=f'Task "{task_id}" is already completed')
 
+def task_already_uncompleted(task_id: int):
+    raise HTTPException(status_code=409, detail=f'Task "{task_id}" is already uncompleted')
+
+
 def task_already_exists(title: str):
     raise HTTPException(status_code=409, detail=f'A task with title "{title}" already exists')
 

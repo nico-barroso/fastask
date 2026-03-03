@@ -2,6 +2,7 @@ from fastapi import APIRouter, Query, HTTPException
 from data.data_handler import load_tasks, write_tasks
 from schemas.responses import ApiResponse
 from schemas.models import *
+from exceptions.tasks_exceptions import *
 
 router = APIRouter(
     prefix="/tasks",
@@ -11,37 +12,38 @@ router = APIRouter(
 # Aunque esto es un ejercicio académico, es una buena práctica para que la API
 # sea consumida con limitaciones por cuestiones de recursos.
 # Tenemos las dos opciones, con paginación tradicional y una con skip para dev
-@router.get("/", response_model=ApiResponse[list[GetTask]])
+@router.get(
+    "/",
+    response_model=ApiResponse[list[GetTask]],
+    summary="Get all tasks",
+    responses={
+        200: {"description": "Tasks retrieved successfully"},
+    }
+)
 async def get_tasks(
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100)
+    page: int | None = Query(default=None, ge=1, description="Page number (overrides skip if provided)"),
+    skip: int = Query(default=0, ge=0, description="Number of tasks to skip"),
+    limit: int = Query(default=10, ge=1, le=100, description="Max number of tasks to return")
 ):
     """
-   TODO - DOC
+    Returns a paginated list of active tasks. Supports both skip/limit and page/limit pagination.
+
+    - Use page for page-based pagination
+    - Use skip for offset-based pagination
+    - limit controls the number of results (max 100)
     """
-    tasks = load_tasks()
-    
+    tasks = [t for t in load_tasks() if not t["is_deleted"]]
+
+    if page is not None:
+        skip = (page - 1) * limit
+
     return ApiResponse(
         success=True,
-        message=f"Tasks retrieved",
+        message="Tasks retrieved" if tasks else "No tasks found",
         data=tasks[skip:skip + limit]
     )
 
 
-@router.get("/page/{page}", response_model= ApiResponse[list[GetTask]], status_code=200)
-async def get_tasks_by_page(
-    page: int, 
-    limit: int = Query(default=10, ge=1, le=100)):
-    """
-    TODO - DOC
-    """
-    tasks = load_tasks()
-
-    skip = (page - 1) * limit
-    return ApiResponse(
-        success=True,
-        message=f"Tasks retrieved with a limit of {limit} ",
-        data=tasks[skip:skip + limit])
 
 
 @router.get("/{task_id}", response_model=ApiResponse[GetTask], status_code=200)

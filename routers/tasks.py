@@ -241,6 +241,16 @@ async def uncomplete_task(task_id: str):
 async def add_task_to_list(task_id: str, list_id: str):
     tasks = load_tasks()
     lists = load_lists()
+    
+    for l in lists:
+            if l["id"] == list_id:
+                if l["is_deleted"]:
+                   ApiException.NotFound.list(list_id)
+                break
+        
+    else:
+        ApiException.NotFound.list(list_id)
+
 
     for t in tasks:
         if t["id"] == task_id:
@@ -251,20 +261,10 @@ async def add_task_to_list(task_id: str, list_id: str):
             break
     else:
         ApiException.NotFound.task(task_id)
-    
-    for l in lists:
-            if l["id"] == list_id:
-                if l["is_deleted"]:
-                   ApiException.NotFound.list(list_id)
-                l["task_ids"].append(task_id)
-                write_lists(lists)
-                break
-        
-    else:
-        ApiException.NotFound.list(list_id)
+
     
     return ApiResponse(
-        success=True, message=f'Task "{t["title"]}" added to list {list_id}', data=[t,l])
+        success=True, message=f'Task "{t["title"]}" added to list {list_id}', data=[t])
 
 
 @router.patch(

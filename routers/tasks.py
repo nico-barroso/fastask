@@ -1,8 +1,8 @@
 import uuid
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, HTTPException, Query
 
-from data.data_handler import load_tasks, write_tasks, load_lists, write_lists
+from data.data_handler import load_tasks, write_tasks, load_lists
 from exceptions.exceptions import ApiException
 from schemas.task_models import GetTask, UpdateTask, CreateTask
 from schemas.responses import ApiResponse
@@ -28,8 +28,8 @@ async def get_tasks(
 ):
     """
     Retrieve a paginated list of active (non-deleted) tasks.
-    
-    -**search**: Retrieves the title.
+
+    - **search**: Filter tasks by title (case-insensitive)
     - **page**: Page number, overrides skip if provided
     - **skip**: Number of tasks to skip
     - **limit**: Maximum number of tasks to return (1-100)
@@ -126,6 +126,7 @@ async def create_task(task: CreateTask):
         "description": task.description,
         "is_completed": False,
         "is_deleted": False,
+        "list_id": None,
     }
 
     tasks.append(new_task)
@@ -234,23 +235,25 @@ async def uncomplete_task(task_id: str):
 
     ApiException.NotFound.task(task_id)
 
-@router.patch(
-        "/{task_id}/add/{list_id}",
-        response_model=ApiResponse[GetTask]
-)
+
+@router.patch("/{task_id}/add/{list_id}", response_model=ApiResponse[GetTask], summary="Add task to list")
 async def add_task_to_list(task_id: str, list_id: str):
+    """
+    Assign an active task to a list.
+
+    - **task_id**: UUID of the task to assign
+    - **list_id**: UUID of the list to assign the task to
+    """
     tasks = load_tasks()
     lists = load_lists()
-    
-    for l in lists:
-            if l["id"] == list_id:
-                if l["is_deleted"]:
-                   ApiException.NotFound.list(list_id)
-                break
-        
+
+    for lst in lists:
+        if lst["id"] == list_id:
+            if lst["is_deleted"]:
+                ApiException.NotFound.list(list_id)
+            break
     else:
         ApiException.NotFound.list(list_id)
-
 
     for t in tasks:
         if t["id"] == task_id:
@@ -262,9 +265,45 @@ async def add_task_to_list(task_id: str, list_id: str):
     else:
         ApiException.NotFound.task(task_id)
 
-    
     return ApiResponse(
-        success=True, message=f'Task "{t["title"]}" added to list {list_id}', data=[t])
+        success=True, message=f'Task "{t["title"]}" added to list {list_id}', data=t
+    )
+
+
+@router.patch("/{task_id}/remove/{list_id}", response_model=ApiResponse[GetTask], summary="Remove task from list")
+async def remove_task_from_list(task_id: str, list_id: str):
+    """
+    Remove an active task from its current list.
+
+    - **task_id**: UUID of the task to remove
+    - **list_id**: UUID of the list to remove the task from
+    """
+    tasks = load_tasks()
+    lists = load_lists()
+
+    for lst in lists:
+        if lst["id"] == list_id:
+            if lst["is_deleted"]:
+                ApiException.NotFound.list(list_id)
+            break
+    else:
+        ApiException.NotFound.list(list_id)
+
+    for t in tasks:
+        if t["id"] == task_id:
+            if t["is_deleted"]:
+                ApiException.NotFound.task(task_id)
+            if t["list_id"] != list_id:
+                    ApiException.BadRequest.raise_(task_id, list_id)
+            t["list_id"] = None
+            write_tasks(tasks)
+            break
+    else:
+        ApiException.NotFound.task(task_id)
+
+    return ApiResponse(
+        success=True, message=f'Task "{t["title"]}" removed from list {list_id}', data=t
+    )
 
 
 @router.patch(
@@ -331,7 +370,7 @@ async def hard_delete_task(task_id: str):
     deleted_task = next((t for t in tasks if t["id"] == task_id), None)
 
     if deleted_task is None:
-            ApiException.NotFound.task(task_id)
+        ApiException.NotFound.task(task_id)
 
     filtered = [t for t in tasks if t["id"] != task_id]
     write_tasks(filtered)

@@ -1,716 +1,1602 @@
 [
   {
-    "id": "3c2fbe3b-f61f-4464-9f48-c0b2261aebdd",
+    "id": "9df074f4-0b3c-4335-b732-b2ed187e4852",
     "title": "Buy groceries",
-    "description": "Waiting for feedback",
+    "description": "Low priority",
     "is_completed": true,
-    "is_deleted": false
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
   },
   {
-    "id": "dd57e0e6-a68f-48fe-9066-eff538149daa",
-    "title": "Call the doctor",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "7cb3cdae-0526-4066-a834-b326f1028bb9",
+    "id": "013605a8-cb8c-44dd-89f7-6bb861a7c9d0",
     "title": "Fix the bug",
-    "description": "Blocked by other task",
+    "description": "In progress",
     "is_completed": true,
-    "is_deleted": false
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
   },
   {
-    "id": "57c6d3fa-9ed7-4ff3-8fd1-9e1b071aa753",
-    "title": "Write tests",
-    "description": "Solo task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "7816a160-a562-4608-8d71-160035b69763",
-    "title": "Review PR",
-    "description": "Waiting for feedback",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "9a4d88b0-42da-492c-91af-ee5da0a2c1fc",
-    "title": "Update docs",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "6d41fdad-dc6c-4fc4-bdb1-238090570339",
-    "title": "Deploy to production",
-    "description": "Solo task",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "485b55e2-f384-4e47-ae92-40b9cd987dce",
+    "id": "4d84d304-0664-4bce-9744-3c922bf442bb",
     "title": "Send invoice",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "1bec494c-f96c-4914-a584-21fb8473f713",
-    "title": "Schedule meeting",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "2a1ea301-96ae-4280-9255-21f886e4e9e7",
-    "title": "Clean desk",
-    "description": "Solo task",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "99f8a546-0256-4443-83c3-995162f3e593",
-    "title": "Read emails",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "d56076b2-8d91-4d08-a099-7b352134b180",
-    "title": "Backup database",
-    "description": "Waiting for feedback",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "e0a36271-3b86-44cb-bc2e-3aab603dbb16",
-    "title": "Update dependencies",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "c6575d1d-d907-4c3e-92fd-069057cc678a",
-    "title": "Write blog post",
     "description": "In progress",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "40b29874-29d4-4e7a-bcdf-0605c31408ff",
-    "title": "Learn FastAPI",
-    "description": "Solo task",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "0e4867f1-700e-414f-94f4-469e5ad05de2",
-    "title": "Practice guitar",
-    "description": "Solo task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "89be369e-f713-46be-866d-65bd1662c398",
-    "title": "Go for a run",
-    "description": "Solo task",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "a5e90d51-cbb5-4f51-9802-7cf76f0c522c",
-    "title": "Cook dinner",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "95297690-b4ec-4456-8dbf-f0e438fa1ada",
-    "title": "Water plants",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "5f249200-2d47-42d8-a186-3066afcd172e",
-    "title": "Pay bills",
-    "description": "Low priority",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "a30c337a-c675-449f-bb29-e7637728f06e",
-    "title": "Book flights",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "498c2cab-95d1-4478-b877-c9bed238d318",
-    "title": "Renew passport",
-    "description": "Needs review",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "08df58d5-9bbc-4ae2-bf53-3910b8f9ecb3",
-    "title": "Call mom",
-    "description": "Low priority",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "89090438-f2dd-470e-9578-dde8ca8ebd2c",
-    "title": "Buy birthday gift",
-    "description": "In progress",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "3cb02878-4c0d-4c41-aed0-8c338ed10a3c",
-    "title": "Organize files",
-    "description": "Team effort",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "8876096e-99d5-4019-910e-a49f7e6d9497",
-    "title": "Watch tutorial",
-    "description": "Blocked by other task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "73f8da64-70c8-43f1-a7fb-4c6c60cfa2c7",
-    "title": "Submit report",
-    "description": "Low priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "1fb172ba-f774-4f3b-a084-429bbf38124e",
-    "title": "Fix typo",
-    "description": "Blocked by other task",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "9fc4f3d1-c6bf-4d2b-bdf3-b3d2222d718c",
-    "title": "Refactor code",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "3fe22c83-06fa-4990-a455-66bc617a6b5a",
-    "title": "Design UI",
-    "description": "Blocked by other task",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "488251a8-e2ed-4004-95b6-b33971784d81",
-    "title": "Create mockup",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "beed48d3-b4e0-48f4-80cf-b7b38be2e44b",
-    "title": "Write readme",
-    "description": "Waiting for feedback",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "e8eafb5c-26e1-4fd8-846e-ded7c9228505",
-    "title": "Setup CI/CD",
-    "description": "Team effort",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "7083b5d8-73c3-4890-8b42-7094156ec432",
-    "title": "Configure Docker",
-    "description": "Solo task",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "e6487b2b-464e-4ddf-8e2a-592e34035498",
-    "title": "Add logging",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "c55518e4-834a-4912-83ce-57b39692d740",
-    "title": "Handle errors",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "7d80efa8-74fd-420f-8dd1-acf057b01318",
-    "title": "Write migration",
-    "description": "Team effort",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "048efc04-397c-4bed-8c80-544aecc8d491",
-    "title": "Seed database",
-    "description": "Low priority",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "92de3c39-4bdc-45cd-b4f8-6eaf80cdface",
-    "title": "Test endpoints",
-    "description": "Quick task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "94691c3c-f3d2-4dc0-989e-185d5714762b",
-    "title": "Fix 404 page",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "10a144e9-6433-4758-a2f3-eec364efd8c3",
-    "title": "Add pagination",
-    "description": "Waiting for feedback",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "7f91f367-341b-4c83-b0cc-153bab94ba8c",
-    "title": "Implement auth",
-    "description": "In progress",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "7c46dba8-59e3-4ff6-8a66-292c1a2e09a8",
-    "title": "Add rate limiting",
-    "description": "Waiting for feedback",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "6e1ff31a-8cd9-4681-a89f-9122413413cb",
-    "title": "Write changelog",
-    "description": "Team effort",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "23c81c83-bb57-4aaa-94f0-a49d1c1b5c41",
-    "title": "Tag release",
-    "description": "In progress",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "afcf760b-ffe3-424f-8a03-2637b14b3876",
-    "title": "Close issues",
-    "description": "Waiting for feedback",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "c699b12f-0900-4dc6-8e0b-e33de37e70be",
-    "title": "Archive project",
-    "description": "In progress",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "1cfdf0f0-c489-4788-98e1-37a9c1cf83f4",
-    "title": "Export data",
-    "description": "Blocked by other task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "d9f98c89-1d86-4070-afb9-a6e4f92674d5",
-    "title": "Import CSV",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "243ed862-9fd5-422e-acba-f81e29028900",
-    "title": "Clean cache",
-    "description": "Blocked by other task",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "818a13db-5a7d-44ac-8162-aa290e859199",
-    "title": "Optimize queries",
-    "description": "Solo task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "b2af9565-ae3c-4f46-af28-e18e59d58097",
-    "title": "Add indexes",
-    "description": "Low priority",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "c0dd6792-9ec4-4fee-8d41-c9ce54a51647",
-    "title": "Profile app",
-    "description": "Solo task",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "ea0613be-6747-45ab-ae10-77227bd713c7",
-    "title": "Fix memory leak",
-    "description": "Team effort",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "088d4fa7-c2c0-4f0f-91e2-3b5d90057357",
-    "title": "Update README",
-    "description": "Team effort",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "a6a1a7e4-0da2-407e-b1cc-78e63c09559a",
-    "title": "Write unit tests",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "2c1418fa-641f-478e-9ffc-7bda663505a9",
-    "title": "Write e2e tests",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "d318c460-81a3-4336-9107-18ab2c2e8b62",
-    "title": "Setup monitoring",
-    "description": "Low priority",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "b4fb44de-8900-4d28-a897-4bc80d3e7db3",
-    "title": "Add metrics",
-    "description": "Low priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "d1222f5d-9421-4e60-9047-03788bb195c7",
-    "title": "Create dashboard",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "7f231b41-a8da-4f73-bd68-8e2d8906e1bb",
-    "title": "Rotate secrets",
-    "description": "Needs review",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "29b5c8d6-c080-45c0-8d16-a2611e37a3f7",
-    "title": "Audit permissions",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "d34cd003-ce0f-4f30-afe5-29b496481580",
-    "title": "Review logs",
-    "description": "Needs review",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "6554f9d4-f171-472f-9879-c1c33661644d",
-    "title": "Check alerts",
-    "description": "Waiting for feedback",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "0d6d4097-579f-4124-9cd7-28acf312c9a8",
-    "title": "Update firewall",
-    "description": "High priority",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "0de2b018-dd3d-4f91-9ad8-ed253ea218e1",
-    "title": "Scan for vulnerabilities",
-    "description": "Waiting for feedback",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "8373ec6c-6782-4075-9ba8-9025a72aa5d8",
-    "title": "Patch server",
-    "description": "Low priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "3ab0fae1-0761-4277-ba71-c7baa34462df",
-    "title": "Renew SSL cert",
-    "description": "Waiting for feedback",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "f761b7eb-8fe8-4e2d-abd1-856ef30664c2",
-    "title": "Update DNS",
-    "description": "In progress",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "900ad740-13b2-4baf-b413-9892ad29f333",
-    "title": "Configure CDN",
-    "description": "Blocked by other task",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "0e96d415-231b-45fd-8d8d-32c50ee561ba",
-    "title": "Compress images",
-    "description": "Requires research",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "3cef5b69-f494-4a83-b3d1-577e5b4d56b0",
-    "title": "Lazy load assets",
-    "description": "Blocked by other task",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "c5fb8c92-ebd5-47b4-b026-09246acdcd72",
-    "title": "Minify CSS",
-    "description": "Needs review",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "a29fc55a-60c2-47f2-8bac-7149f5434798",
-    "title": "Bundle JS",
-    "description": "Needs review",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "4c6b1673-8848-4393-b12b-721f292e7dd2",
-    "title": "Audit performance",
-    "description": "Blocked by other task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "a7df496d-2437-4453-b5a2-864783d2864c",
-    "title": "Fix broken links",
-    "description": "Team effort",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "bd214208-9297-4919-8646-6d390c2646ea",
-    "title": "Update sitemap",
-    "description": "Team effort",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "244be5db-7969-488a-bfa2-756fb2d18f5c",
-    "title": "Submit to Google",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "f86ec8ed-310b-4fd2-9b02-9cb4c8b37f8a",
-    "title": "Add meta tags",
-    "description": "High priority",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "5694a6e5-a0fa-4484-89e6-ef7219b5c4bd",
-    "title": "Write copy",
-    "description": "High priority",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "bd884dd3-f3bd-4473-99ee-5902a548f56b",
-    "title": "Translate content",
-    "description": "Solo task",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "d9277e5f-3a99-486a-93ed-f711a3b0a711",
-    "title": "Add dark mode",
-    "description": "In progress",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "b3b80a25-a283-4ed9-b887-1ed522425c4a",
-    "title": "Fix responsive layout",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "6d6a805f-68b6-4305-90a1-12c9993b1e62",
-    "title": "Test on mobile",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "f767364b-2b58-4900-93aa-4229797249db",
-    "title": "Fix Safari bug",
-    "description": "Low priority",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "7103359e-355a-4177-9069-bc0081e97884",
-    "title": "Add animations",
-    "description": "Waiting for feedback",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "9f34b008-cf5d-487f-a6d1-e989b2f3b09b",
-    "title": "Improve accessibility",
-    "description": "Low priority",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "57569ae2-3701-48f1-bce9-5a924766ee05",
-    "title": "Add keyboard shortcuts",
-    "description": "Solo task",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "69ae6d73-fc9f-4180-8b4f-9e4624376e45",
-    "title": "Write user guide",
-    "description": "Needs review",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "b267b44a-b0a5-403b-b624-bf93f6ae06c8",
-    "title": "Record demo",
-    "description": "Solo task",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "5a9e88a7-852a-47b0-8f82-67f0c5520aba",
-    "title": "Prepare slides",
-    "description": "Needs review",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "38738d92-5f7c-45ac-a39b-ddbd93494a6b",
-    "title": "Practice presentation",
-    "description": "Requires research",
-    "is_completed": true,
-    "is_deleted": true
-  },
-  {
-    "id": "8387563c-4eeb-4b56-934c-35efd1af71e7",
-    "title": "Send follow-up",
-    "description": "High priority",
-    "is_completed": true,
-    "is_deleted": false
-  },
-  {
-    "id": "4a157c98-304a-496e-a7b7-0bf0a2919158",
-    "title": "Update LinkedIn",
-    "description": "Team effort",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "f8dbc77d-b075-4e19-8555-5dd71f41c8a4",
-    "title": "Apply for job",
-    "description": "Low priority",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "id": "857d7231-bd75-43ec-846b-06a70b2978ec",
-    "title": "Review contract",
-    "description": "High priority",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "1daf64cc-afc3-4f6e-9218-7f2ee7de2c6a",
-    "title": "Sign NDA",
-    "description": "Team effort",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "2749affe-f4d7-4600-9b9a-b1989409121f",
-    "title": "Set up 2FA",
-    "description": "Waiting for feedback",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "e7d8538e-180a-451f-8b7a-2530d709eb9b",
-    "title": "Change password",
-    "description": "Low priority",
-    "is_completed": false,
-    "is_deleted": false
-  },
-  {
-    "id": "39541e22-c1e3-4bfc-9205-3904161b52d9",
-    "title": "Clear downloads folder",
-    "description": "Waiting for feedback",
-    "is_completed": false,
-    "is_deleted": true
-  },
-  {
-    "title": "hola",
-    "description": "me he creado con uid",
     "is_completed": false,
     "is_deleted": false,
-    "id": "cebcdd0a-7fd9-4241-9512-e0901d642d44"
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
   },
   {
-    "id": "79f48364-826e-44b9-8e7e-9293a235623e",
-    "title": "buenas",
-    "description": "segundo intento",
+    "id": "d67eff70-fad8-4edc-923c-1f3db0c38b7f",
+    "title": "Añadir licencia",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "7ac51daf-81fc-4c73-9537-aa5d19671bba",
+    "title": "Revisar sueldo",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "80fea2dd-7881-4906-b3c5-3159531d507f",
+    "title": "Arreglar la bici",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "c5ad4f9d-cfb6-44c1-96d5-e2faffb86c25",
+    "title": "Recoger paquete",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "04b5c9bb-2a45-43a6-9d24-72172944d8a8",
+    "title": "Comprar leche",
+    "description": "En progreso",
     "is_completed": false,
-    "is_deleted": false
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "22600ab3-bd95-4c9e-9199-f967f9013335",
+    "title": "Solicitar préstamo",
+    "description": "Requiere investigación",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "cdc9c4f9-58c7-4afa-b6b0-0976f000c62f",
+    "title": "Crear rama en Git",
+    "description": "Pendiente de feedback",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "0730fa20-9995-4809-b290-86cd3878310f",
+    "title": "Hacer la compra",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "af04a0c3-4c8a-461d-a26b-4146129c37a9",
+    "title": "Revisar métricas",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "a16ad88e-f8c7-4db2-afac-a04814640801",
+    "title": "Comparar tarifas",
+    "description": "Pendiente de revisión",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "2b21dabd-7e58-4fd0-899f-676442e9c742",
+    "title": "Comprar pilas",
+    "description": "Urgente",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "ac552dca-8fc5-4bd6-95f6-be96af663f1d",
+    "title": "Llamar al seguro",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "6b375cad-740f-4d34-9571-a10846759104",
+    "title": "Repasar apuntes",
+    "description": "En progreso",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "87769d16-3ca8-41a3-acfe-b3e2056c469c",
+    "title": "Comprar regalo de cumpleaños",
+    "description": "Urgente",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "b77b1620-b865-48f4-97ca-d56fa1372bea",
+    "title": "Revisar el correo",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "56ca2756-010c-4eb4-ac81-02e6fac4b3c2",
+    "title": "Solicitar ayuda",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "e1a1cc82-59e0-498e-aa08-a0ed2c08a7d3",
+    "title": "Revisar correo spam",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "00f652f8-b602-4dfa-8a67-78d68d1a27f8",
+    "title": "Imprimir tickets",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "ed4f7726-cfa0-4088-a1b6-a2cfd208eaf2",
+    "title": "Organizar el escritorio",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "64e571da-c2aa-40e7-beb4-357dae8e9b6e",
+    "title": "Ir al dentista",
+    "description": "Urgente",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "b9ea6eab-254d-4e77-9119-4a0ac28c69fa",
+    "title": "Revisar logs",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "e71f40c1-bb37-4fe5-ad4e-3152dd3fbe87",
+    "title": "Llamar al médico",
+    "description": "Urgente",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "655fe59d-4260-4795-a31a-a1cf078cbdba",
+    "title": "Comparar tarifas 25",
+    "description": "Urgente",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "245dcdc2-610b-4c7d-aad8-e5239ada0411",
+    "title": "Comprar leche 26",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "a83ac0fd-f0bf-4925-9d2a-1476d1136b16",
+    "title": "Enviar el informe",
+    "description": "Urgente",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "9b1e6f39-c340-4060-80fc-daa776254958",
+    "title": "Ir al dentista 28",
+    "description": "Requiere investigación",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "5ed9348d-dddc-4490-b15d-456e3c8a465c",
+    "title": "Leer documentación",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "15d40b82-42a4-4e0e-8f71-b779c8e7c41e",
+    "title": "Escribir tests",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "77c21f8e-1ce0-4af3-9f56-400562213872",
+    "title": "Reservar restaurante",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "0d206977-dab0-4417-86ee-5efe4c07bf3b",
+    "title": "Llamar al banco",
+    "description": "Urgente",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "53f68bf7-04bf-4dcc-9d0a-c687743aad79",
+    "title": "Hacer kata",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "240d6442-5212-4913-899c-0408e0f529df",
+    "title": "Preparar entrevista",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "0e584f49-77c0-48e4-b855-842fa6bd1fd6",
+    "title": "Firmar documento",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "75f01c85-c075-4dc2-aef5-fd5bfbb63921",
+    "title": "Practicar inglés",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "c57b7c53-9527-4f75-9c49-c2814699efde",
+    "title": "Actualizar README",
+    "description": "Alta prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "e8e971db-3b4a-4181-8e06-3d7f008f56a0",
+    "title": "Sacar al perro",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "68427170-4d5f-4c0e-9121-f17c1bea702d",
+    "title": "Llamar al banco 39",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "e6fc8ad3-0e73-4e2f-9e3e-011e7c1b8533",
+    "title": "Revisar el presupuesto",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "e395a883-c246-4693-b72a-36b4d0c76448",
+    "title": "Cambiar la bombilla",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "d5c69f59-6114-4197-9648-c5ad83075929",
+    "title": "Preparar el almuerzo",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "d34b66b2-f569-46c5-b113-635e6d61a985",
+    "title": "Revisar el presupuesto 43",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "af4abaae-5375-4f9a-af67-91159daad92f",
+    "title": "Repasar apuntes 44",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "203c3260-4482-4c1e-853b-5e0e8cf90b91",
+    "title": "Archivar documentos",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "5691e48b-de9b-4ab0-be51-f8fdd607d4f5",
+    "title": "Renovar el DNI",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "b79fb789-8855-4290-965a-ed0c481902de",
+    "title": "Comprar leche 47",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "2ef5fd12-e489-4118-97fd-1916d3148e69",
+    "title": "Revisar oferta de trabajo",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "85d83f02-7580-46fe-b662-9a43352b8b2b",
+    "title": "Leer el libro",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "7a294cd3-6bc0-426f-8157-f9db91d30bec",
+    "title": "Pedir cita previa",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "b3968daa-1d6a-4746-965a-0338158f4b96",
+    "title": "Hacer la declaración",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "3b94c892-9b1a-4a62-8848-1e380fc752d9",
+    "title": "Solicitar ayuda 52",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "4879fa55-0b5e-4d15-9001-1cd7f5174e7b",
+    "title": "Solicitar ayuda 53",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "2cf61bc3-f3e7-4a12-9d14-0a97f704387b",
+    "title": "Documentar la API",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "0867c61c-dca7-4b91-bb44-413a3afb207b",
+    "title": "Comprar pilas 55",
+    "description": "Requiere investigación",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "4e5ef5d1-6e46-41e7-9539-e933f8264017",
+    "title": "Actualizar el CV",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "139a103e-dd98-4d13-8d26-bafb5497c987",
+    "title": "Hacer la cama",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "487e0ade-be08-4ae8-9f8e-fc43ceac92d5",
+    "title": "Enviar candidatura",
+    "description": "Pendiente de revisión",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "9dd96abe-d248-40f5-9873-7a472352b9b5",
+    "title": "Borrar archivos antiguos",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "0f75a105-c3b3-4bcb-a12a-4a21e926d1fa",
+    "title": "Ir al dentista 60",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "bd94108e-8fd8-49fa-a384-5061a13d0241",
+    "title": "Escribir post",
+    "description": "Urgente",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "e7bfa788-1189-4920-ad30-bc094592f199",
+    "title": "Estudiar Python",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "061059e0-2dc6-4111-95bb-4b3fe2bfcf4b",
+    "title": "Comparar tarifas 63",
+    "description": "En progreso",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "48ea2396-bfc1-4ccb-9999-4e0dc85ab52e",
+    "title": "Fregar los platos",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "8a29d01c-a67c-42ad-9654-f56824667965",
+    "title": "Recoger paquete 65",
+    "description": "Alta prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "14e8d121-0eee-45ed-a9b6-de401bcda9dc",
+    "title": "Preparar la reunión",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "db51c1c1-6fd2-4c5c-b50a-19717e56a462",
+    "title": "Buscar piso",
+    "description": "Urgente",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "1ea41739-0b2d-4148-b8ac-5b7257981998",
+    "title": "Planchar la ropa",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "5ae71b79-56d0-4876-9ea8-46a6470c0e81",
+    "title": "Aprender Git",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "395f6738-7bc5-4ca2-b66d-bfed88c73381",
+    "title": "Planchar la ropa 70",
+    "description": "Urgente",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "34726b7a-ad48-46b3-8c38-91ac8181207b",
+    "title": "Revisar el correo 71",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "cae60850-07f0-4c2d-850c-4b0d9ea6a39d",
+    "title": "Reclamar factura",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "40739fa1-089f-4733-98be-31541298196f",
+    "title": "Actualizar contraseñas",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "7cb10cfb-8db0-4657-9c2c-3076603aaa9e",
+    "title": "Imprimir tickets 74",
+    "description": "Requiere investigación",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "ec340e00-8ca0-4b25-9b7b-2926359ba254",
+    "title": "Cocinar batch cooking",
+    "description": "Alta prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "6df42373-8c86-450c-b222-a367d57c72f2",
+    "title": "Documentar la API 76",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "d3248b29-07d7-4baf-abd5-1bd5361029d0",
+    "title": "Preparar la reunión 77",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "4e45ca9c-6c8d-455a-9665-1b1149141882",
+    "title": "Revisar sueldo 78",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "09eec3ae-9b2f-41ce-91b5-38a3f480af07",
+    "title": "Revisar dependencias",
+    "description": "Pendiente de feedback",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "57cc3258-97b7-44c7-a507-f10f420b7179",
+    "title": "Desplegar en producción",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "c333fc11-3932-41fa-a6ca-df0b60434284",
+    "title": "Revisar pull requests",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "67670ab8-2bf8-4631-9a70-6fa051106f4e",
+    "title": "Actualizar perfil de LinkedIn",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "3cbea2cf-730d-4b51-825e-8e9cabe7869b",
+    "title": "Comprar leche 83",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "839b911c-f0a5-46dd-a65e-f5eac977df2f",
+    "title": "Refactorizar código",
+    "description": "Esfuerzo en equipo",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "11d544aa-0f0b-4223-a3da-70824b75d625",
+    "title": "Reclamar factura 85",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "e218366f-41c1-4de3-96b4-04ddef26e494",
+    "title": "Añadir licencia 86",
+    "description": "Pendiente de feedback",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "512515b4-be55-4683-bf7f-b8a3515985d0",
+    "title": "Comprar regalo de cumpleaños 87",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "9c415575-1f61-4158-a8cf-0735b8ecfa33",
+    "title": "Resolver ejercicio",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "a9be9d14-7028-41ce-bb48-a1c7a6be0b2b",
+    "title": "Preparar entrevista 89",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "447cf44a-e114-4939-ad74-490b16988aee",
+    "title": "Preparar portfolio",
+    "description": "Alta prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "c6cd0ea5-629e-4f98-b13f-e1e48cd057b3",
+    "title": "Revisar oferta de trabajo 91",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "1de27be9-6ab5-48de-98bf-89e97321f672",
+    "title": "Hacer la compra 92",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "b93ee1e7-6630-4a08-ab16-420fef598780",
+    "title": "Tramitar baja",
+    "description": "Pendiente de feedback",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "e287e938-474a-449f-aab1-3202c4ba4ba4",
+    "title": "Investigar empresa",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "bf26b10b-3093-474c-ae33-c52bfdce25ff",
+    "title": "Renovar el seguro",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "db232e30-05d7-4adc-b584-eb94da9d65d6",
+    "title": "Actualizar contraseñas 96",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "e7254c6d-eb99-4623-be16-6bfe5bf08792",
+    "title": "Preparar entrevista 97",
+    "description": "Pendiente de revisión",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "ff171f3e-88e7-4d8d-a358-f34630afd410",
+    "title": "Reservar restaurante 98",
+    "description": "En progreso",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "5952813b-16bf-4b1c-9371-66e4ad54bc51",
+    "title": "Arreglar la bici 99",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "269470ad-469f-46f7-85d3-385d4dd36734",
+    "title": "Leer el libro 100",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "1b925682-ab37-4119-afad-a27195bdecb2",
+    "title": "Pagar el alquiler",
+    "description": "Pendiente de feedback",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "572af8ee-19b2-4cd2-95e8-af68a5f55e20",
+    "title": "Revisar logs 102",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "64a7a106-a27c-4309-b834-cebdf5878903",
+    "title": "Ir al gimnasio",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "aa4932b7-2d04-474b-9d73-e3dea3917619",
+    "title": "Cambiar la bombilla 104",
+    "description": "En progreso",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "14e161d6-9a55-4cd5-adcc-c749400016bc",
+    "title": "Ir al gimnasio 105",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "a312d685-faf1-4e87-9ea6-a3ce5dff68e0",
+    "title": "Cocinar batch cooking 106",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "3af941e5-2fdf-4e1d-99f9-305534ea3659",
+    "title": "Corregir el bug",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "c68e0cec-d42e-4a07-8d7d-2a6a965e1164",
+    "title": "Calcular impuestos",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "8fcd27ff-797e-4176-8130-746081809e54",
+    "title": "Hacer la cama 109",
+    "description": "Urgente",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "25e84073-ca84-4b2f-a7dd-126c53d153db",
+    "title": "Pagar el alquiler 110",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "656b6452-c666-4e53-a536-5049947be824",
+    "title": "Solicitar ayuda 111",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "91790bd2-0e0a-4605-b6d6-600f1a78b880",
+    "title": "Hacer kata 112",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "1b275f27-0eef-42c9-9009-cdecb7358654",
+    "title": "Enviar el informe 113",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "f6b01c2f-2984-4030-b554-4b48a4b5ec0d",
+    "title": "Corregir el bug 114",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "5ddb10c3-143f-4363-9d35-8c05f56941b3",
+    "title": "Repasar apuntes 115",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "af4791be-b1f3-45d5-8528-b7558b592d28",
+    "title": "Reclamar factura 116",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "0780234b-b5c7-4aec-a76c-cc982baa5e94",
+    "title": "Hacer la cama 117",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "e3bc86d4-066c-42a7-84e2-e14a36bae82e",
+    "title": "Enviar el informe 118",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "bab970c1-eab3-4c35-9843-d921459aab99",
+    "title": "Bajar la basura",
+    "description": "En progreso",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "d049e88f-5025-4853-8e95-8420765d548b",
+    "title": "Cambiar la bombilla 120",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "5ae41265-8c81-49bd-a71e-0b4ad27dd232",
+    "title": "Limpiar el baño",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "b9b0e592-1076-4668-bd48-901845ecc3ea",
+    "title": "Limpiar descargas",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "d8073c48-5c5a-4049-9a49-7d9b8a0e86ea",
+    "title": "Arreglar la bici 123",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "635bb0ba-6402-4460-9430-05629f13e904",
+    "title": "Actualizar contraseñas 124",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "0ad882fb-c632-4cce-99f6-3a809b4d69d9",
+    "title": "Investigar empresa 125",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "292091ca-6e66-4fef-a2c0-e7ef27c34f8e",
+    "title": "Revisar correo spam 126",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "49f2863c-ccc7-4275-a536-2afeb306e134",
+    "title": "Comprar regalo de cumpleaños 127",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "38202b21-9de9-4f45-ab80-37ca86e921e7",
+    "title": "Ir a correos",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "1a3fa841-ec57-4456-bec7-786094cf438b",
+    "title": "Subir cambios",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "7f01a59c-6ba6-4f5f-a6a2-1444a2dc9bfc",
+    "title": "Investigar empresa 130",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "a6895cc9-d49e-46bc-a051-1ae652de92a3",
+    "title": "Preparar portfolio 131",
+    "description": "En progreso",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "f8d13457-8548-4b9c-a094-c9964e2c3be8",
+    "title": "Practicar inglés 132",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "40db1f0b-ce70-4b60-9556-1c7202ae94ba",
+    "title": "Revisar métricas 133",
+    "description": "En progreso",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "7906b897-eaea-4e55-b317-f1d2883eb8ab",
+    "title": "Preparar la reunión 134",
+    "description": "Alta prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "1f992d2f-b43a-4997-aa62-05b3d621654e",
+    "title": "Abrir cuenta bancaria",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "20d9ac4b-d9ed-4b3c-870c-1042700b00a0",
+    "title": "Pedir cita previa 136",
+    "description": "Esfuerzo en equipo",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "a22b6f26-cc2f-45a0-835a-f40e9ab789ee",
+    "title": "Pedir cita previa 137",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "3c53ebac-e0e9-42ec-bc5e-ebeb36a3235c",
+    "title": "Escribir post 138",
+    "description": "Alta prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "6f365689-198a-4c5f-8665-f80a8314a781",
+    "title": "Reservar restaurante 139",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "356cc2bf-6bed-4423-ba5b-79d219e8f2ff",
+    "title": "Reclamar factura 140",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "6145cc5a-1a94-4056-9526-232799f85bdf",
+    "title": "Poner la lavadora",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "88217cfc-0eed-4efb-b63d-005511b05025",
+    "title": "Revisar sueldo 142",
+    "description": "Baja prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "4ce5a46a-8f20-40d1-a310-01d41e4baea1",
+    "title": "Renovar el seguro 143",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "03b39bc2-9902-4a99-af3d-5997958e2bdb",
+    "title": "Tender la ropa",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "0868e1bd-e9f6-4ffc-89d6-bef6ea7ace2e",
+    "title": "Hacer copia de seguridad",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "d4653521-726c-49a6-bcea-61aa618a63f8",
+    "title": "Dar de baja servicio",
+    "description": "Urgente",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "b405725f-610c-4164-ac74-a21624928799",
+    "title": "Ir al dentista 147",
+    "description": "Pendiente de revisión",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "5f536ab7-fa90-48a1-8ffc-a09992f6acc0",
+    "title": "Leer documentación 148",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "45574d50-3928-4d9e-b06d-351933d4dfe7",
+    "title": "Revisar oferta de trabajo 149",
+    "description": "Tarea rápida",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "438ac096-4ac6-4179-aead-88911bd6cfc0",
+    "title": "Leer documentación 150",
+    "description": "Alta prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "0a1107e9-e99a-4838-ac98-8493a18c0296",
+    "title": "Limpiar el baño 151",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "898ead11-0447-4577-824e-ac669193a5dd",
+    "title": "Apuntarse al curso",
+    "description": "Alta prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "487d1e80-68f0-4b7b-9c55-eaddeb584e14",
+    "title": "Actualizar contraseñas 153",
+    "description": "En progreso",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "94214401-8a28-4af4-9aed-ef9a81aff308",
+    "title": "Llamar al fontanero",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "b33f4447-157c-4773-894f-f18fc24df7a3",
+    "title": "Renovar el seguro 155",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "bde60602-1cba-4e29-b516-ffb1dc3f2c52",
+    "title": "Preparar el almuerzo 156",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "203b8545-b225-41d2-8a12-8024967e0875",
+    "title": "Revisar las facturas",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "93488bcf-e493-41ee-9fbe-b564936433e4",
+    "title": "Estudiar Python 158",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "e8d73020-1517-48de-ae7e-15c739d7834a",
+    "title": "Solicitar préstamo 159",
+    "description": "Alta prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "993cc3f2-89d7-4ee6-90fd-281e7c461392",
+    "title": "Poner la lavadora 160",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "b52d778f-d306-49fd-b43c-cc9ee9661499",
+    "title": "Meditar 10 minutos",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "68acaae8-9a3c-44b4-ad92-57ad588860d4",
+    "title": "Limpiar el baño 162",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "d3e15aa9-4de4-423a-841f-92962ab7e8b8",
+    "title": "Ir al dentista 163",
+    "description": "Esfuerzo en equipo",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "261fa62a-78f5-4def-a068-dc53aefc5691",
+    "title": "Pedir cita previa 164",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "2afc353b-7e14-4875-9d38-30e1aa436851",
+    "title": "Leer documentación 165",
+    "description": "Tarea personal",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "4348727f-c54e-44b4-b5d0-a2ce8917ac5d",
+    "title": "Regar las plantas",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "e684cd7e-970b-4a0b-9b01-151507b77a82",
+    "title": "Practicar inglés 167",
+    "description": "Pendiente de feedback",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "105b23a7-7cd4-45af-96dc-e0c8db4af120",
+    "title": "Crear rama en Git 168",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "8569add8-a36d-4d96-a75a-e25e61ac497b",
+    "title": "Revisar oferta de trabajo 169",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "676588f4-51c9-446b-a8f1-cd605bb14c10",
+    "title": "Calcular impuestos 170",
+    "description": "Esfuerzo en equipo",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "5174d50e-be4a-4a69-91a7-8082b9269504",
+    "title": "Archivar documentos 171",
+    "description": "En progreso",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "78135c7a-bf32-4936-a9bc-842e36e078cd",
+    "title": "Practicar inglés 172",
+    "description": "Requiere investigación",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "95396a3b-e1c9-4433-b184-e6caca3e2b67",
+    "title": "Comprar pilas 173",
+    "description": "Alta prioridad",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "ca66285b-c643-4ae2-90df-06b808ba16f9",
+    "title": "Sacar al perro 174",
+    "description": "Esfuerzo en equipo",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "ae28fdbb-1613-457a-b798-6b4a13037ec5",
+    "title": "Reservar restaurante 175",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "b3441b4e-e9c7-48f3-a2d2-57581ced0e1d",
+    "title": "Solicitar préstamo 176",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "11842d8a-c371-431b-a1d7-b101ca5c02cc",
+    "title": "Hacer copia de seguridad 177",
+    "description": "Bloqueada",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "61a50a08-5c57-4634-99b2-576a12f77890",
+    "title": "Enviar candidatura 178",
+    "description": "Baja prioridad",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "55c4d1c8-d6ee-47e1-b421-19ea356e0e13",
+    "title": "Preparar la reunión 179",
+    "description": "Requiere investigación",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "abe0c82d-6658-4742-a64c-13322a632298",
+    "title": "Repasar apuntes 180",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "ec8adc1e-f63d-404b-93db-9979b56538c2",
+    "title": "Reservar restaurante 181",
+    "description": "Pendiente de feedback",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "e3efec04-dde7-4491-a0fb-805c1fdb17ce",
+    "title": "Ver tutorial de Docker",
+    "description": "En progreso",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "17abd038-6c41-4bfa-a0ba-15a50c973206",
+    "title": "Limpiar descargas 183",
+    "description": "Alta prioridad",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "1325960d-fb37-4c0c-b3e5-fd27a43e79ac",
+    "title": "Sacar al perro 184",
+    "description": "Esfuerzo en equipo",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "3eace4bf-6886-4438-ba0a-68f688885622",
+    "title": "Fregar los platos 185",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "ee6c1c3c-66c5-46fd-b852-a5c6e6e45b56",
+    "title": "Revisar logs 186",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "83af0c63-dcd6-4b65-b97c-50a359ea375f",
+    "title": "Revisar pull requests 187",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "ea4adb49-0958-49a3-a5d8-6e748a9ac877",
+    "title": "Llamar al médico 188",
+    "description": "Pendiente de feedback",
+    "is_completed": true,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "ecb1c296-6956-49d2-a606-9ec14ef76027",
+    "title": "Hacer copia de seguridad 189",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "8074bbb8-33c5-4bdb-9a04-e9d8df888496",
+    "title": "Actualizar perfil de LinkedIn 190",
+    "description": "Puede esperar",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "c46b86c4-8a5f-454a-8a30-26e97795257b",
+    "title": "Escribir tests 191",
+    "description": "Esfuerzo en equipo",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "e5ef576e-e8fa-4ef4-9f7a-59cc7d583627",
+    "title": "Revisar pull requests 192",
+    "description": "Requiere investigación",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+  },
+  {
+    "id": "4efc854b-0966-4f60-b667-eff5e9130e3d",
+    "title": "Revisar métricas 193",
+    "description": "Tarea personal",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "40a071a8-c50a-4ece-83d1-371c79e9b800",
+    "title": "Pedir cita previa 194",
+    "description": "Pendiente de revisión",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
+  },
+  {
+    "id": "9a320fb3-0d41-41eb-973c-2c09ab4d2dfc",
+    "title": "Preparar la presentación",
+    "description": "Bloqueada",
+    "is_completed": false,
+    "is_deleted": true,
+    "list_id": null
+  },
+  {
+    "id": "286d63e6-ff0e-4849-aa45-0a53d833966c",
+    "title": "Reclamar factura 196",
+    "description": "Tarea rápida",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": null
+  },
+  {
+    "id": "0e4b8704-b78c-4078-b81c-9b004851edc1",
+    "title": "Actualizar perfil de LinkedIn 197",
+    "description": "Puede esperar",
+    "is_completed": false,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "a49efcd8-dc2a-4816-a086-53b5dc4b5aa6",
+    "title": "Enviar el informe 198",
+    "description": "Urgente",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
+  },
+  {
+    "id": "e2c63ae0-9f16-4b0e-ab01-813526131447",
+    "title": "Tramitar baja 199",
+    "description": "Requiere investigación",
+    "is_completed": true,
+    "is_deleted": false,
+    "list_id": "550e8400-e29b-41d4-a716-446655440000"
   }
 ]

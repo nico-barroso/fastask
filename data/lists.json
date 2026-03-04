@@ -1,0 +1,20 @@
+[
+  {
+    "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "title": "Trabajo",
+    "description": "Tareas y pendientes del trabajo",
+    "is_deleted": false
+  },
+  {
+    "id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+    "title": "Personal",
+    "description": "Objetivos y recados personales",
+    "is_deleted": false
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "title": "Compras",
+    "description": "Lista de la compra y artículos del hogar",
+    "is_deleted": false
+  }
+]

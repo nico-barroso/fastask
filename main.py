@@ -12,8 +12,7 @@ app.include_router(tasks.router)
 app.include_router(lists.router)
 
 
-@app.get(
-        "/", response_model=ApiResponse[None], summary="Health check", tags=["root"])
+@app.get("/", response_model=ApiResponse[None], summary="Health check", tags=["root"])
 async def root():
     """Check if the API is up and running."""
     return ApiResponse(success=True, message="Welcome, TaskApi is working!", data=None)

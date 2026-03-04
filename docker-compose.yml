@@ -1,11 +1,10 @@
 services:
   task-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: task-api-container
+    build: .
+    container_name: fastak-api-container
     ports:
       - "8000:8000"
     volumes:
       - ./data:/app/data
+      - .:/app
     restart: unless-stopped

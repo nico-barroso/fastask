@@ -3,6 +3,7 @@ from functools import partial
 
 from exceptions.exceptions import ApiException
 
+
 def load_json(file_path: str):
     """
     Read and parse a JSON file from the given path.

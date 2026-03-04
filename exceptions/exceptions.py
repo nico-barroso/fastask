@@ -2,6 +2,12 @@ from fastapi import HTTPException
 
 
 class ApiException:
+
+    # 400 - Bad Request
+    @staticmethod
+    def _bad_request(detail: str):
+        raise HTTPException(400, detail=detail)
+
     # 404 - Not Found
     @staticmethod
     def _not_found(entity: str, id: str):
@@ -18,7 +24,10 @@ class ApiException:
 
     @staticmethod
     def _already_restored(entity: str, id: str):
-        raise HTTPException(409, detail=f'{entity} "{id}" is already active or has been already restored.')
+        raise HTTPException(
+            409,
+            detail=f'{entity} "{id}" is already active or has been already restored.',
+        )
 
     @staticmethod
     def _already_completed(entity: str, id: str):
@@ -31,12 +40,19 @@ class ApiException:
     # 500 - Internal Server Error
     @staticmethod
     def _internal_error(msg: str = "An unexpected error occurred"):
-        raise HTTPException(500, detail=f'An unexpected error occurred: {msg}')
+        raise HTTPException(500, detail=f"An unexpected error occurred: {msg}")
 
     @staticmethod
     def _storage_error(msg: str = "Failed to read or write storage"):
-        raise HTTPException(500, detail=f'Failed to read or write storage: {msg}')
-
+        raise HTTPException(500, detail=f"Failed to read or write storage: {msg}")
+    
+    
+    # 400 Class - Bad Request
+    class BadRequest:
+        @staticmethod
+        def raise_(task_id: str, list_id: str):
+            ApiException._bad_request(
+                f'Task "{task_id}" does not belong to list "{list_id}"')
 
     # 404 Class - Not Found
     class NotFound:
@@ -47,7 +63,6 @@ class ApiException:
         @staticmethod
         def task(task_id: str):
             ApiException._not_found("Task", task_id)
-
 
     # 409 Class - Conflict
     class AlreadyExists:
@@ -94,7 +109,6 @@ class ApiException:
         @staticmethod
         def task(task_id: str):
             ApiException._already_uncompleted("Task", task_id)
-
 
     # 500 Class - Internal Server Error
     class InternalError:

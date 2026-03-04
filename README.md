@@ -104,6 +104,13 @@ fastask/
 
 ## Arrancar el proyecto
 
+### Desde GHCR (recomendado)
+
+```bash
+docker pull ghcr.io/nico-barroso/fastask:latest
+docker run -p 8000:8000 ghcr.io/nico-barroso/fastask:latest
+```
+
 ### Con Docker
 
 ```bash

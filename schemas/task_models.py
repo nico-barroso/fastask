@@ -21,6 +21,7 @@ class GetTask(BaseModel):
     )
     is_completed: bool = Field(description="Whether the task has been completed")
     is_deleted: bool = Field(description="Whether the task has been soft-deleted")
+    list_id: Optional[str] = Field(default=None, description="UUID of the list this task belongs to")
 
 
 class CreateTask(TaskBase):

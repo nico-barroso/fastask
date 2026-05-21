@@ -1,11 +1,12 @@
 import uuid
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Depends, Query
 
-from data.data_handler import load_tasks, write_tasks, load_lists
+from data.data_handler import load_lists, load_tasks, write_tasks
+from dependencies.pagination import Pagination
 from exceptions.exceptions import ApiException
-from schemas.task_models import GetTask, UpdateTask, CreateTask
 from schemas.responses import ApiResponse
+from schemas.task_models import CreateTask, GetTask, UpdateTask
 
 router = APIRouter(
     prefix="/tasks",
@@ -21,10 +22,8 @@ router = APIRouter(
 
 @router.get("/", response_model=ApiResponse[list[GetTask]], summary="Get all tasks")
 async def get_tasks(
+    pagination: Pagination = Depends(),
     search: str | None = Query(default=None),
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
 ):
     """
     Retrieve a paginated list of active (non-deleted) tasks.
@@ -39,13 +38,10 @@ async def get_tasks(
     if search:
         tasks = [t for t in tasks if search.lower() in t["title"].lower()]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     return ApiResponse(
         success=True,
         message="Tasks retrieved" if tasks else "No tasks found",
-        data=tasks[skip : skip + limit],
+        data=tasks[pagination.skip : pagination.skip + pagination.limit],
     )
 
 
@@ -55,9 +51,7 @@ async def get_tasks(
     summary="Get completed tasks",
 )
 async def get_completed_tasks(
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
+    pagination: Pagination = Depends(),
 ):
     """
     Retrieve a paginated list of completed and active (non-deleted) tasks.
@@ -68,13 +62,10 @@ async def get_completed_tasks(
     """
     tasks = [t for t in load_tasks() if not t["is_deleted"] and t["is_completed"]]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     return ApiResponse(
         success=True,
         message="Completed tasks retrieved" if tasks else "No completed tasks found",
-        data=tasks[skip : skip + limit],
+        data=tasks[pagination.skip : pagination.skip + pagination.limit],
     )
 
 
@@ -82,9 +73,7 @@ async def get_completed_tasks(
     "/deleted", response_model=ApiResponse[list[GetTask]], summary="Get deleted tasks"
 )
 async def get_deleted_tasks(
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
+    pagination: Pagination = Depends(),
 ):
     """
     Retrieve a paginated list of soft-deleted tasks.
@@ -95,13 +84,10 @@ async def get_deleted_tasks(
     """
     tasks = [t for t in load_tasks() if t["is_deleted"]]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     return ApiResponse(
         success=True,
         message="Deleted tasks retrieved" if tasks else "No deleted tasks found",
-        data=tasks[skip : skip + limit],
+        data=tasks[pagination.skip : pagination.skip + pagination.limit],
     )
 
 
@@ -236,7 +222,11 @@ async def uncomplete_task(task_id: str):
     raise ApiException.NotFound.task(task_id)
 
 
-@router.patch("/{task_id}/add/{list_id}", response_model=ApiResponse[GetTask], summary="Add task to list")
+@router.patch(
+    "/{task_id}/add/{list_id}",
+    response_model=ApiResponse[GetTask],
+    summary="Add task to list",
+)
 async def add_task_to_list(task_id: str, list_id: str):
     """
     Assign an active task to a list.
@@ -270,7 +260,11 @@ async def add_task_to_list(task_id: str, list_id: str):
     )
 
 
-@router.patch("/{task_id}/remove/{list_id}", response_model=ApiResponse[GetTask], summary="Remove task from list")
+@router.patch(
+    "/{task_id}/remove/{list_id}",
+    response_model=ApiResponse[GetTask],
+    summary="Remove task from list",
+)
 async def remove_task_from_list(task_id: str, list_id: str):
     """
     Remove an active task from its current list.
@@ -371,7 +365,7 @@ async def hard_delete_task(task_id: str):
 
     if deleted_task is None:
         raise ApiException.NotFound.task(task_id)
-    
+
     if not deleted_task["is_deleted"]:
         raise ApiException.MustBeSoftDeleted.task(task_id)
 

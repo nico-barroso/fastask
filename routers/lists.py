@@ -1,6 +1,8 @@
 import uuid
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Depends, Query
+
+from dependencies.pagination import Pagination
 
 from data.data_handler import load_lists, load_tasks, write_lists
 from exceptions.exceptions import ApiException
@@ -23,10 +25,8 @@ router = APIRouter(
 
 @router.get("/", response_model=ApiResponse[list[GetList]], summary="Get all lists")
 async def get_lists(
+    pagination: Pagination = Depends(),
     search: str | None = Query(default=None),
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
 ):
     """
     Retrieve a paginated list of active (non-deleted) lists.
@@ -42,11 +42,8 @@ async def get_lists(
     if search:
         lists = [lst for lst in lists if search.lower() in lst["title"].lower()]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     data_counted = []
-    for lst in lists[skip : skip + limit]:
+    for lst in lists[pagination.skip : pagination.skip + pagination.limit]:
         lst["task_count"] = count_tasks(lst["id"], tasks)
         data_counted.append(lst)
 
@@ -89,9 +86,7 @@ async def create_list(lst: CreateList):
     "/deleted", response_model=ApiResponse[list[GetList]], summary="Get deleted lists"
 )
 async def get_deleted_lists(
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
+    pagination: Pagination = Depends(),
 ):
     """
     Retrieve a paginated list of soft-deleted lists.
@@ -102,13 +97,10 @@ async def get_deleted_lists(
     """
     lists = [lst for lst in load_lists() if lst["is_deleted"]]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     return ApiResponse(
         success=True,
         message="Deleted lists retrieved" if lists else "No deleted lists found",
-        data=lists[skip : skip + limit],
+        data=lists[pagination.skip : pagination.skip + pagination.limit],
     )
 
 
@@ -140,9 +132,7 @@ async def get_list_by_id(list_id: str):
 )
 async def get_tasks_by_list(
     list_id: str,
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
+    pagination: Pagination = Depends(),
 ):
     """
     Retrieve all active tasks belonging to a specific list.
@@ -168,15 +158,12 @@ async def get_tasks_by_list(
         if tsk["list_id"] == list_id and not tsk["is_deleted"]
     ]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     return ApiResponse(
         success=True,
         message=f'Tasks from list "{list_id}" retrieved'
         if tasks
         else "No tasks found in this list",
-        data=tasks[skip : skip + limit],
+        data=tasks[pagination.skip : pagination.skip + pagination.limit],
     )
 
 

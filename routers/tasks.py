@@ -251,13 +251,11 @@ async def add_task_to_list(task_id: str, list_id: str):
                 raise ApiException.NotFound.task(task_id)
             t["list_id"] = list_id
             write_tasks(tasks)
-            break
-    else:
-        raise ApiException.NotFound.task(task_id)
+            return ApiResponse(
+                success=True, message=f'Task "{t["title"]}" added to list {list_id}', data=t
+            )
 
-    return ApiResponse(
-        success=True, message=f'Task "{t["title"]}" added to list {list_id}', data=t
-    )
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.patch(
@@ -291,13 +289,11 @@ async def remove_task_from_list(task_id: str, list_id: str):
                 raise ApiException.BadRequest.raise_(task_id, list_id)
             t["list_id"] = None
             write_tasks(tasks)
-            break
-    else:
-        raise ApiException.NotFound.task(task_id)
+            return ApiResponse(
+                success=True, message=f'Task "{t["title"]}" removed from list {list_id}', data=t
+            )
 
-    return ApiResponse(
-        success=True, message=f'Task "{t["title"]}" removed from list {list_id}', data=t
-    )
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.patch(

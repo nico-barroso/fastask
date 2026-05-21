@@ -2,7 +2,6 @@ from fastapi import HTTPException
 
 
 class ApiException:
-
     # 400 Class - Bad Request
     class BadRequest:
         @staticmethod
@@ -41,6 +40,15 @@ class ApiException:
         def task(task_id: str) -> HTTPException:
             return HTTPException(409, detail=f'Task "{task_id}" is already deleted.')
 
+    class MustBeSoftDeleted:
+        @staticmethod
+        def list(list_id: str) -> HTTPException:
+            return HTTPException(409, detail=f'List "{list_id}" must be soft deleted first!')
+
+        @staticmethod
+        def task(task_id: str) -> HTTPException:
+            return HTTPException(409, detail=f'Task "{task_id}" must be soft deleted first!')
+
     class AlreadyRestored:
         @staticmethod
         def list(list_id: str) -> HTTPException:
@@ -64,7 +72,9 @@ class ApiException:
     class AlreadyUncompleted:
         @staticmethod
         def task(task_id: str) -> HTTPException:
-            return HTTPException(409, detail=f'Task "{task_id}" is already uncompleted.')
+            return HTTPException(
+                409, detail=f'Task "{task_id}" is already uncompleted.'
+            )
 
     # 500 Class - Internal Server Error
     class InternalError:

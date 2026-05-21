@@ -266,12 +266,18 @@ def test_soft_delete_list_not_found_returns_404(client):
 def test_hard_delete_list(client):
     with patch("routers.lists.load_lists", return_value=lists()), \
          patch("routers.lists.write_lists"):
-        response = client.delete("/lists/list-1/hard")
+        response = client.delete("/lists/list-3/hard")
     assert response.status_code == 200
-    assert response.json()["data"]["id"] == "list-1"
+    assert response.json()["data"]["id"] == "list-3"
 
 
 def test_hard_delete_list_not_found_returns_404(client):
     with patch("routers.lists.load_lists", return_value=lists()):
         response = client.delete("/lists/nonexistent/hard")
     assert response.status_code == 404
+
+
+def test_hard_delete_active_list_returns_409(client):
+    with patch("routers.lists.load_lists", return_value=lists()):
+        response = client.delete("/lists/list-1/hard")
+    assert response.status_code == 409

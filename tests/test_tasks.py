@@ -329,12 +329,18 @@ def test_soft_delete_not_found_returns_404(client):
 def test_hard_delete_task(client):
     with patch("routers.tasks.load_tasks", return_value=tasks()), \
          patch("routers.tasks.write_tasks"):
-        response = client.delete("/tasks/task-1/hard")
+        response = client.delete("/tasks/task-3/hard")
     assert response.status_code == 200
-    assert response.json()["data"]["id"] == "task-1"
+    assert response.json()["data"]["id"] == "task-3"
 
 
 def test_hard_delete_not_found_returns_404(client):
     with patch("routers.tasks.load_tasks", return_value=tasks()):
         response = client.delete("/tasks/nonexistent/hard")
     assert response.status_code == 404
+
+
+def test_hard_delete_active_task_returns_409(client):
+    with patch("routers.tasks.load_tasks", return_value=tasks()):
+        response = client.delete("/tasks/task-1/hard")
+    assert response.status_code == 409

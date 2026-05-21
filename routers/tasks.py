@@ -371,6 +371,9 @@ async def hard_delete_task(task_id: str):
 
     if deleted_task is None:
         raise ApiException.NotFound.task(task_id)
+    
+    if not deleted_task["is_deleted"]:
+        raise ApiException.MustBeSoftDeleted.task(task_id)
 
     filtered = [t for t in tasks if t["id"] != task_id]
     write_tasks(filtered)

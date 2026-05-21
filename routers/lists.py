@@ -277,6 +277,9 @@ async def hard_delete_list(list_id: str):
     if deleted_list is None:
         raise ApiException.NotFound.list(list_id)
 
+    if not deleted_list["is_deleted"]:
+        raise ApiException.MustBeSoftDeleted.list(list_id)
+
     filtered = [lst for lst in lists if lst["id"] != list_id]
     write_lists(filtered)
 

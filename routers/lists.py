@@ -74,7 +74,7 @@ async def create_list(lst: CreateList):
     lists = load_lists()
 
     if any(item["title"] == lst.title for item in lists if not item["is_deleted"]):
-        ApiException.AlreadyExists.list(lst.title)
+        raise ApiException.AlreadyExists.list(lst.title)
 
     new_list = {
         "id": str(uuid.uuid4()),
@@ -134,7 +134,7 @@ async def get_list_by_id(list_id: str):
                 success=True, message=f'List "{list_id}" retrieved', data=lst
             )
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.get(
@@ -161,10 +161,10 @@ async def get_tasks_by_list(
     for lst in lists:
         if lst["id"] == list_id:
             if lst["is_deleted"]:
-                ApiException.NotFound.list(list_id)
+                raise ApiException.NotFound.list(list_id)
             break
     else:
-        ApiException.NotFound.list(list_id)
+        raise ApiException.NotFound.list(list_id)
 
     tasks = [tsk for tsk in load_tasks() if tsk["list_id"] == list_id and not tsk["is_deleted"]]
 
@@ -196,13 +196,13 @@ async def update_list(list_id: str, lst: UpdateList):
     for item in lists:
         if item["id"] == list_id:
             if item["is_deleted"]:
-                ApiException.NotFound.list(list_id)
+                raise ApiException.NotFound.list(list_id)
             item.update(lst.model_dump(exclude_unset=True))
             write_lists(lists)
             item["task_count"] = _count_tasks(list_id, tasks)
             return ApiResponse(success=True, message="List updated", data=item)
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.patch(
@@ -223,7 +223,7 @@ async def restore_list(list_id: str):
     for lst in lists:
         if lst["id"] == list_id:
             if not lst["is_deleted"]:
-                ApiException.AlreadyRestored.list(list_id)
+                raise ApiException.AlreadyRestored.list(list_id)
             lst["is_deleted"] = False
             write_lists(lists)
             lst["task_count"] = _count_tasks(list_id, tasks)
@@ -231,7 +231,7 @@ async def restore_list(list_id: str):
                 success=True, message=f'List "{lst["title"]}" restored', data=lst
             )
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.delete(
@@ -250,7 +250,7 @@ async def delete_list(list_id: str):
     for lst in lists:
         if lst["id"] == list_id:
             if lst["is_deleted"]:
-                ApiException.AlreadyDeleted.list(list_id)
+                raise ApiException.AlreadyDeleted.list(list_id)
             lst["is_deleted"] = True
             write_lists(lists)
             lst["task_count"] = _count_tasks(list_id, tasks)
@@ -258,7 +258,7 @@ async def delete_list(list_id: str):
                 success=True, message=f'List "{lst["title"]}" has been deleted', data=lst
             )
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.delete(
@@ -275,7 +275,7 @@ async def hard_delete_list(list_id: str):
     deleted_list = next((lst for lst in lists if lst["id"] == list_id), None)
 
     if deleted_list is None:
-        ApiException.NotFound.list(list_id)
+        raise ApiException.NotFound.list(list_id)
 
     filtered = [lst for lst in lists if lst["id"] != list_id]
     write_lists(filtered)

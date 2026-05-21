@@ -14,10 +14,10 @@ def load_json(file_path: str):
             data = json.load(file)
         return data
     except FileNotFoundError as error:
-        ApiException.StorageError.raise_(str(error))
+        raise ApiException.StorageError.raise_(str(error))
 
     except json.JSONDecodeError as error:
-        ApiException.InternalError.raise_(str(error))
+        raise ApiException.InternalError.raise_(str(error))
 
 
 def write_json(file_path: str, data: list):

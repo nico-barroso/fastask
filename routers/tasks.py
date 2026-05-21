@@ -1,6 +1,6 @@
 import uuid
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Query
 
 from data.data_handler import load_tasks, write_tasks, load_lists
 from exceptions.exceptions import ApiException
@@ -118,7 +118,7 @@ async def create_task(task: CreateTask):
     tasks = load_tasks()
 
     if any(t["title"] == task.title for t in tasks if not t["is_deleted"]):
-        ApiException.AlreadyExists.task(task.title)
+        raise ApiException.AlreadyExists.task(task.title)
 
     new_task = {
         "id": str(uuid.uuid4()),
@@ -150,7 +150,7 @@ async def get_task_by_id(task_id: str):
                 success=True, message=f'Task "{task_id}" retrieved', data=t
             )
 
-    ApiException.NotFound.task(task_id)
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.patch(
@@ -169,12 +169,12 @@ async def update_task(task_id: str, task: UpdateTask):
     for t in tasks:
         if t["id"] == task_id:
             if t["is_deleted"]:
-                ApiException.NotFound.task(task_id)
+                raise ApiException.NotFound.task(task_id)
             t.update(task.model_dump(exclude_unset=True))
             write_tasks(tasks)
             return ApiResponse(success=True, message="Task updated", data=t)
 
-    ApiException.NotFound.task(task_id)
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.patch(
@@ -193,9 +193,9 @@ async def complete_task(task_id: str):
     for t in tasks:
         if t["id"] == task_id:
             if t["is_deleted"]:
-                ApiException.NotFound.task(task_id)
+                raise ApiException.NotFound.task(task_id)
             if t["is_completed"]:
-                ApiException.AlreadyCompleted.task(task_id)
+                raise ApiException.AlreadyCompleted.task(task_id)
 
             t["is_completed"] = True
             write_tasks(tasks)
@@ -203,7 +203,7 @@ async def complete_task(task_id: str):
                 success=True, message=f'Task "{t["title"]}" completed', data=t
             )
 
-    ApiException.NotFound.task(task_id)
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.patch(
@@ -222,9 +222,9 @@ async def uncomplete_task(task_id: str):
     for t in tasks:
         if t["id"] == task_id:
             if t["is_deleted"]:
-                ApiException.NotFound.task(task_id)
+                raise ApiException.NotFound.task(task_id)
             if not t["is_completed"]:
-                ApiException.AlreadyUncompleted.task(task_id)
+                raise ApiException.AlreadyUncompleted.task(task_id)
 
             t["is_completed"] = False
             write_tasks(tasks)
@@ -233,7 +233,7 @@ async def uncomplete_task(task_id: str):
                 success=True, message=f'Task "{t["title"]}" uncompleted', data=t
             )
 
-    ApiException.NotFound.task(task_id)
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.patch("/{task_id}/add/{list_id}", response_model=ApiResponse[GetTask], summary="Add task to list")
@@ -250,20 +250,20 @@ async def add_task_to_list(task_id: str, list_id: str):
     for lst in lists:
         if lst["id"] == list_id:
             if lst["is_deleted"]:
-                ApiException.NotFound.list(list_id)
+                raise ApiException.NotFound.list(list_id)
             break
     else:
-        ApiException.NotFound.list(list_id)
+        raise ApiException.NotFound.list(list_id)
 
     for t in tasks:
         if t["id"] == task_id:
             if t["is_deleted"]:
-                ApiException.NotFound.task(task_id)
+                raise ApiException.NotFound.task(task_id)
             t["list_id"] = list_id
             write_tasks(tasks)
             break
     else:
-        ApiException.NotFound.task(task_id)
+        raise ApiException.NotFound.task(task_id)
 
     return ApiResponse(
         success=True, message=f'Task "{t["title"]}" added to list {list_id}', data=t
@@ -284,22 +284,22 @@ async def remove_task_from_list(task_id: str, list_id: str):
     for lst in lists:
         if lst["id"] == list_id:
             if lst["is_deleted"]:
-                ApiException.NotFound.list(list_id)
+                raise ApiException.NotFound.list(list_id)
             break
     else:
-        ApiException.NotFound.list(list_id)
+        raise ApiException.NotFound.list(list_id)
 
     for t in tasks:
         if t["id"] == task_id:
             if t["is_deleted"]:
-                ApiException.NotFound.task(task_id)
+                raise ApiException.NotFound.task(task_id)
             if t["list_id"] != list_id:
-                    ApiException.BadRequest.raise_(task_id, list_id)
+                raise ApiException.BadRequest.raise_(task_id, list_id)
             t["list_id"] = None
             write_tasks(tasks)
             break
     else:
-        ApiException.NotFound.task(task_id)
+        raise ApiException.NotFound.task(task_id)
 
     return ApiResponse(
         success=True, message=f'Task "{t["title"]}" removed from list {list_id}', data=t
@@ -322,14 +322,14 @@ async def restore_task(task_id: str):
     for t in tasks:
         if t["id"] == task_id:
             if not t["is_deleted"]:
-                ApiException.AlreadyRestored.task(task_id)
+                raise ApiException.AlreadyRestored.task(task_id)
             t["is_deleted"] = False
             write_tasks(tasks)
             return ApiResponse(
                 success=True, message=f'Task "{t["title"]}" restored', data=t
             )
 
-    ApiException.NotFound.task(task_id)
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.delete(
@@ -346,14 +346,14 @@ async def delete_task(task_id: str):
     for t in tasks:
         if t["id"] == task_id:
             if t["is_deleted"]:
-                ApiException.AlreadyDeleted.task(task_id)
+                raise ApiException.AlreadyDeleted.task(task_id)
             t["is_deleted"] = True
             write_tasks(tasks)
             return ApiResponse(
                 success=True, message=f'Task "{t["title"]}" has been deleted', data=t
             )
 
-    ApiException.NotFound.task(task_id)
+    raise ApiException.NotFound.task(task_id)
 
 
 @router.delete(
@@ -370,7 +370,7 @@ async def hard_delete_task(task_id: str):
     deleted_task = next((t for t in tasks if t["id"] == task_id), None)
 
     if deleted_task is None:
-        ApiException.NotFound.task(task_id)
+        raise ApiException.NotFound.task(task_id)
 
     filtered = [t for t in tasks if t["id"] != task_id]
     write_tasks(filtered)

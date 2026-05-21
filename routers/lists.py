@@ -2,15 +2,12 @@ import uuid
 
 from fastapi import APIRouter, Query
 
-from data.data_handler import load_lists, write_lists, load_tasks
-from schemas.list_models import GetList, CreateList, UpdateList
-from schemas.task_models import GetTask
-from schemas.responses import ApiResponse
+from data.data_handler import load_lists, load_tasks, write_lists
 from exceptions.exceptions import ApiException
-
-
-def _count_tasks(list_id: str, tasks: list) -> int:
-    return sum(1 for t in tasks if t["list_id"] == list_id and not t["is_deleted"])
+from schemas.list_models import CreateList, GetList, UpdateList
+from schemas.responses import ApiResponse
+from schemas.task_models import GetTask
+from utils.count_tasks import count_tasks
 
 router = APIRouter(
     prefix="/lists",
@@ -50,8 +47,7 @@ async def get_lists(
 
     data_counted = []
     for lst in lists[skip : skip + limit]:
-        count = sum(1 for tsk in tasks if tsk["list_id"] == lst["id"] and not tsk["is_deleted"])
-        lst["task_count"] = count
+        lst["task_count"] = count_tasks(lst["id"], tasks)
         data_counted.append(lst)
 
     return ApiResponse(
@@ -129,7 +125,7 @@ async def get_list_by_id(list_id: str):
 
     for lst in lists:
         if lst["id"] == list_id:
-            lst["task_count"] = _count_tasks(list_id, tasks)
+            lst["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(
                 success=True, message=f'List "{list_id}" retrieved', data=lst
             )
@@ -166,14 +162,20 @@ async def get_tasks_by_list(
     else:
         raise ApiException.NotFound.list(list_id)
 
-    tasks = [tsk for tsk in load_tasks() if tsk["list_id"] == list_id and not tsk["is_deleted"]]
+    tasks = [
+        tsk
+        for tsk in load_tasks()
+        if tsk["list_id"] == list_id and not tsk["is_deleted"]
+    ]
 
     if page is not None:
         skip = (page - 1) * limit
 
     return ApiResponse(
         success=True,
-        message=f'Tasks from list "{list_id}" retrieved' if tasks else "No tasks found in this list",
+        message=f'Tasks from list "{list_id}" retrieved'
+        if tasks
+        else "No tasks found in this list",
         data=tasks[skip : skip + limit],
     )
 
@@ -199,7 +201,7 @@ async def update_list(list_id: str, lst: UpdateList):
                 raise ApiException.NotFound.list(list_id)
             item.update(lst.model_dump(exclude_unset=True))
             write_lists(lists)
-            item["task_count"] = _count_tasks(list_id, tasks)
+            item["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(success=True, message="List updated", data=item)
 
     raise ApiException.NotFound.list(list_id)
@@ -226,7 +228,7 @@ async def restore_list(list_id: str):
                 raise ApiException.AlreadyRestored.list(list_id)
             lst["is_deleted"] = False
             write_lists(lists)
-            lst["task_count"] = _count_tasks(list_id, tasks)
+            lst["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(
                 success=True, message=f'List "{lst["title"]}" restored', data=lst
             )
@@ -253,9 +255,11 @@ async def delete_list(list_id: str):
                 raise ApiException.AlreadyDeleted.list(list_id)
             lst["is_deleted"] = True
             write_lists(lists)
-            lst["task_count"] = _count_tasks(list_id, tasks)
+            lst["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(
-                success=True, message=f'List "{lst["title"]}" has been deleted', data=lst
+                success=True,
+                message=f'List "{lst["title"]}" has been deleted',
+                data=lst,
             )
 
     raise ApiException.NotFound.list(list_id)

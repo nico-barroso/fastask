@@ -1,16 +1,15 @@
 import uuid
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Depends, Query
 
-from data.data_handler import load_lists, write_lists, load_tasks
-from schemas.list_models import GetList, CreateList, UpdateList
-from schemas.task_models import GetTask
-from schemas.responses import ApiResponse
+from dependencies.pagination import Pagination
+
+from data.data_handler import load_lists, load_tasks, write_lists
 from exceptions.exceptions import ApiException
-
-
-def _count_tasks(list_id: str, tasks: list) -> int:
-    return sum(1 for t in tasks if t["list_id"] == list_id and not t["is_deleted"])
+from schemas.list_models import CreateList, GetList, UpdateList
+from schemas.responses import ApiResponse
+from schemas.task_models import GetTask
+from utils.count_tasks import count_tasks
 
 router = APIRouter(
     prefix="/lists",
@@ -26,10 +25,8 @@ router = APIRouter(
 
 @router.get("/", response_model=ApiResponse[list[GetList]], summary="Get all lists")
 async def get_lists(
+    pagination: Pagination = Depends(),
     search: str | None = Query(default=None),
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
 ):
     """
     Retrieve a paginated list of active (non-deleted) lists.
@@ -45,13 +42,9 @@ async def get_lists(
     if search:
         lists = [lst for lst in lists if search.lower() in lst["title"].lower()]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     data_counted = []
-    for lst in lists[skip : skip + limit]:
-        count = sum(1 for tsk in tasks if tsk["list_id"] == lst["id"] and not tsk["is_deleted"])
-        lst["task_count"] = count
+    for lst in lists[pagination.skip : pagination.skip + pagination.limit]:
+        lst["task_count"] = count_tasks(lst["id"], tasks)
         data_counted.append(lst)
 
     return ApiResponse(
@@ -74,7 +67,7 @@ async def create_list(lst: CreateList):
     lists = load_lists()
 
     if any(item["title"] == lst.title for item in lists if not item["is_deleted"]):
-        ApiException.AlreadyExists.list(lst.title)
+        raise ApiException.AlreadyExists.list(lst.title)
 
     new_list = {
         "id": str(uuid.uuid4()),
@@ -93,9 +86,7 @@ async def create_list(lst: CreateList):
     "/deleted", response_model=ApiResponse[list[GetList]], summary="Get deleted lists"
 )
 async def get_deleted_lists(
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
+    pagination: Pagination = Depends(),
 ):
     """
     Retrieve a paginated list of soft-deleted lists.
@@ -106,13 +97,10 @@ async def get_deleted_lists(
     """
     lists = [lst for lst in load_lists() if lst["is_deleted"]]
 
-    if page is not None:
-        skip = (page - 1) * limit
-
     return ApiResponse(
         success=True,
         message="Deleted lists retrieved" if lists else "No deleted lists found",
-        data=lists[skip : skip + limit],
+        data=lists[pagination.skip : pagination.skip + pagination.limit],
     )
 
 
@@ -129,12 +117,12 @@ async def get_list_by_id(list_id: str):
 
     for lst in lists:
         if lst["id"] == list_id:
-            lst["task_count"] = _count_tasks(list_id, tasks)
+            lst["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(
                 success=True, message=f'List "{list_id}" retrieved', data=lst
             )
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.get(
@@ -144,9 +132,7 @@ async def get_list_by_id(list_id: str):
 )
 async def get_tasks_by_list(
     list_id: str,
-    page: int | None = Query(default=None, ge=1),
-    skip: int = Query(default=0, ge=0),
-    limit: int = Query(default=10, ge=1, le=100),
+    pagination: Pagination = Depends(),
 ):
     """
     Retrieve all active tasks belonging to a specific list.
@@ -161,20 +147,23 @@ async def get_tasks_by_list(
     for lst in lists:
         if lst["id"] == list_id:
             if lst["is_deleted"]:
-                ApiException.NotFound.list(list_id)
+                raise ApiException.NotFound.list(list_id)
             break
     else:
-        ApiException.NotFound.list(list_id)
+        raise ApiException.NotFound.list(list_id)
 
-    tasks = [tsk for tsk in load_tasks() if tsk["list_id"] == list_id and not tsk["is_deleted"]]
-
-    if page is not None:
-        skip = (page - 1) * limit
+    tasks = [
+        tsk
+        for tsk in load_tasks()
+        if tsk["list_id"] == list_id and not tsk["is_deleted"]
+    ]
 
     return ApiResponse(
         success=True,
-        message=f'Tasks from list "{list_id}" retrieved' if tasks else "No tasks found in this list",
-        data=tasks[skip : skip + limit],
+        message=f'Tasks from list "{list_id}" retrieved'
+        if tasks
+        else "No tasks found in this list",
+        data=tasks[pagination.skip : pagination.skip + pagination.limit],
     )
 
 
@@ -196,13 +185,13 @@ async def update_list(list_id: str, lst: UpdateList):
     for item in lists:
         if item["id"] == list_id:
             if item["is_deleted"]:
-                ApiException.NotFound.list(list_id)
+                raise ApiException.NotFound.list(list_id)
             item.update(lst.model_dump(exclude_unset=True))
             write_lists(lists)
-            item["task_count"] = _count_tasks(list_id, tasks)
+            item["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(success=True, message="List updated", data=item)
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.patch(
@@ -223,15 +212,15 @@ async def restore_list(list_id: str):
     for lst in lists:
         if lst["id"] == list_id:
             if not lst["is_deleted"]:
-                ApiException.AlreadyRestored.list(list_id)
+                raise ApiException.AlreadyRestored.list(list_id)
             lst["is_deleted"] = False
             write_lists(lists)
-            lst["task_count"] = _count_tasks(list_id, tasks)
+            lst["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(
                 success=True, message=f'List "{lst["title"]}" restored', data=lst
             )
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.delete(
@@ -250,15 +239,17 @@ async def delete_list(list_id: str):
     for lst in lists:
         if lst["id"] == list_id:
             if lst["is_deleted"]:
-                ApiException.AlreadyDeleted.list(list_id)
+                raise ApiException.AlreadyDeleted.list(list_id)
             lst["is_deleted"] = True
             write_lists(lists)
-            lst["task_count"] = _count_tasks(list_id, tasks)
+            lst["task_count"] = count_tasks(list_id, tasks)
             return ApiResponse(
-                success=True, message=f'List "{lst["title"]}" has been deleted', data=lst
+                success=True,
+                message=f'List "{lst["title"]}" has been deleted',
+                data=lst,
             )
 
-    ApiException.NotFound.list(list_id)
+    raise ApiException.NotFound.list(list_id)
 
 
 @router.delete(
@@ -275,7 +266,10 @@ async def hard_delete_list(list_id: str):
     deleted_list = next((lst for lst in lists if lst["id"] == list_id), None)
 
     if deleted_list is None:
-        ApiException.NotFound.list(list_id)
+        raise ApiException.NotFound.list(list_id)
+
+    if not deleted_list["is_deleted"]:
+        raise ApiException.MustBeSoftDeleted.list(list_id)
 
     filtered = [lst for lst in lists if lst["id"] != list_id]
     write_lists(filtered)

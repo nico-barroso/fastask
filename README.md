@@ -1,53 +1,73 @@
-# FastTask — API REST con FastAPI
+ > 🇪🇸 [Versión en español](README_ES.md)
 
-API REST de gestión de tareas con soporte de listas, construida con FastAPI y Pydantic v2.
+# FastTask — REST API with FastAPI
+
+Task and list management REST API built with FastAPI and Pydantic v2.
 
 ---
 
-## Decisiones de arquitectura
+## Architecture decisions
+
+### Model separation
+Distinct Pydantic models with clear responsibilities:
+- `CreateTask` / `CreateList` — only accepts fields the client can send
+- `UpdateTask` / `UpdateList` — all fields optional for partial updates
+- `GetTask` / `GetList` — response model, includes server-generated fields
+
+The server controls `id`, `is_completed` and `is_deleted` at all times — the client can never manipulate them directly.
+
+### Single source of truth
+The task-list relationship is managed solely from `task.list_id`. Lists do not store references to their tasks — tasks are the source of truth. Each list's `task_count` is calculated at query time by cross-referencing both storages.
+
+> Deleting a list does not delete its tasks. Tasks remain active and accessible, and their management is the client's responsibility. This is a direct consequence of tasks being the source of truth, not lists.
+
+### Centralized exceptions
+All HTTP errors are defined in `exceptions/exceptions.py` as reusable static methods organized by type. This avoids repeating `raise HTTPException(...)` in every endpoint and centralizes error messages.
+
+### UUIDs as identifiers
+`uuid4` is used instead of sequential IDs to avoid collisions and avoid exposing the volume of data in the API.
+
+### Flexible pagination
+Listing endpoints support two modes: by `page` (page number) or by `skip`/`limit` (manual offset). If `page` is provided, it overrides `skip` automatically. The logic is centralized in `dependencies/pagination.py` using FastAPI's dependency injection system (`Depends`), avoiding repetition across endpoints.
+
+>[!Warning]
+> **Known limitation:** pagination is applied after loading the entire JSON into memory. With a high volume of data this would be the first bottleneck. The structural solution is to migrate to a database that supports `LIMIT/OFFSET` at query level.
+
+### Task and list isolation
+Delete and update operations on lists **do not propagate** to their tasks. Deleting a list does not delete its tasks — they remain active and accessible. This is a conscious decision: the API treats each resource independently and delegates to the client the decision of what to do with orphaned tasks (reassign, delete, etc.).
 
 ### Soft delete
-Las tareas y listas nunca se eliminan directamente del almacenamiento. Al borrar una entidad se marca `is_deleted: true`, lo que la oculta de todos los listados activos. Esto permite restaurarlas y mantener un historial. El hard delete existe como operación explícita y destructiva.
+Tasks and lists are never directly removed from storage. Deleting an entity marks it as `is_deleted: true`, hiding it from all active listings. This allows restoring them and maintaining a history. Hard delete exists as an explicit and destructive operation.
 
-### Separación de modelos
-Se usan modelos Pydantic distintos con responsabilidades claras:
-- `CreateTask` / `CreateList` — solo acepta los campos que el cliente puede enviar
-- `UpdateTask` / `UpdateList` — todos los campos opcionales para actualizaciones parciales
-- `GetTask` / `GetList` — modelo de respuesta, incluye los campos generados por el servidor
-
-El servidor controla `id`, `is_completed` e `is_deleted` en todo momento — el cliente nunca puede manipularlos directamente.
-
-### Fuente de verdad única
-La relación tarea-lista se gestiona únicamente desde `task.list_id`. Las listas no almacenan referencias a sus tareas. El `task_count` de cada lista se calcula en tiempo de consulta cruzando ambos almacenamientos.
-
-### Excepciones centralizadas
-Todos los errores HTTP están definidos en `exceptions/exceptions.py` como métodos estáticos reutilizables organizados por tipo. Esto evita repetir `raise HTTPException(...)` en cada endpoint y centraliza los mensajes de error.
-
-### UUIDs como identificadores
-Se usa `uuid4` en lugar de IDs secuenciales para evitar colisiones y no exponer el volumen de datos de la API.
-
-### Paginación flexible
-Los endpoints de listado soportan dos modos: por `page` (número de página) o por `skip`/`limit` (offset manual). Si se proporciona `page`, sobreescribe `skip` automáticamente.
+>[!IMPORTANT]
+> ### Hard delete with safety barrier
+> Hard delete (permanent) is only allowed on entities already in soft-deleted state. Attempting to hard delete an active entity returns a `409 Conflict`. This creates intentional friction to avoid accidental data loss.
 
 ---
 
-## Estructura
+## Structure
 
 ```
 fastask/
 ├── data/
-│   ├── data_handler.py     # Lectura y escritura del JSON
-│   ├── tasks.json          # Almacenamiento de tareas
-│   └── lists.json          # Almacenamiento de listas
+│   ├── data_handler.py     # JSON read and write
+│   ├── tasks.json          # Task storage
+│   └── lists.json          # List storage
+├── dependencies/
+│   └── pagination.py       # Reusable pagination dependency
 ├── exceptions/
-│   └── exceptions.py       # Excepciones HTTP centralizadas
+│   └── exceptions.py       # Centralized HTTP exceptions
 ├── routers/
-│   ├── tasks.py            # Endpoints de tareas
-│   └── lists.py            # Endpoints de listas
+│   ├── tasks.py            # Task endpoints
+│   └── lists.py            # List endpoints
 ├── schemas/
-│   ├── task_models.py      # Modelos Pydantic de tareas
-│   ├── list_models.py      # Modelos Pydantic de listas
-│   └── responses.py        # Wrapper genérico ApiResponse[T]
+│   ├── task_models.py      # Task Pydantic models
+│   ├── list_models.py      # List Pydantic models
+│   └── responses.py        # Generic ApiResponse[T] wrapper
+├── tests/
+│   ├── test_tasks.py       # Task endpoint tests
+│   ├── test_lists.py       # List endpoint tests
+│   └── test_exceptions.py  # Exception tests
 ├── main.py
 ├── Dockerfile
 ├── docker-compose.yml
@@ -58,37 +78,37 @@ fastask/
 
 ## Endpoints
 
-### Tareas `/tasks`
+### Tasks `/tasks`
 
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| `GET` | `/tasks` | Listar tareas activas (con búsqueda y paginación) |
-| `GET` | `/tasks/completed` | Listar tareas completadas |
-| `GET` | `/tasks/deleted` | Listar tareas eliminadas |
-| `GET` | `/tasks/{id}` | Obtener tarea por ID |
-| `POST` | `/tasks` | Crear tarea |
-| `PATCH` | `/tasks/{id}` | Actualizar título o descripción |
-| `PATCH` | `/tasks/{id}/completed` | Marcar como completada |
-| `PATCH` | `/tasks/{id}/uncompleted` | Marcar como no completada |
-| `PATCH` | `/tasks/{id}/add/{list_id}` | Añadir tarea a una lista |
-| `PATCH` | `/tasks/{id}/remove/{list_id}` | Quitar tarea de una lista |
-| `PATCH` | `/tasks/{id}/restore` | Restaurar tarea eliminada |
+| Method | Route | Description |
+|--------|-------|-------------|
+| `GET` | `/tasks` | List active tasks (with search and pagination) |
+| `GET` | `/tasks/completed` | List completed tasks |
+| `GET` | `/tasks/deleted` | List deleted tasks |
+| `GET` | `/tasks/{id}` | Get task by ID |
+| `POST` | `/tasks` | Create task |
+| `PATCH` | `/tasks/{id}` | Update title or description |
+| `PATCH` | `/tasks/{id}/completed` | Mark as completed |
+| `PATCH` | `/tasks/{id}/uncompleted` | Mark as not completed |
+| `PATCH` | `/tasks/{id}/add/{list_id}` | Add task to a list |
+| `PATCH` | `/tasks/{id}/remove/{list_id}` | Remove task from a list |
+| `PATCH` | `/tasks/{id}/restore` | Restore deleted task |
 | `DELETE` | `/tasks/{id}` | Soft delete |
-| `DELETE` | `/tasks/{id}/hard` | Hard delete (permanente) |
+| `DELETE` | `/tasks/{id}/hard` | Hard delete (permanent) — must be soft-deleted first |
 
-### Listas `/lists`
+### Lists `/lists`
 
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| `GET` | `/lists` | Listar listas activas (con búsqueda y paginación) |
-| `GET` | `/lists/deleted` | Listar listas eliminadas |
-| `GET` | `/lists/{id}` | Obtener lista por ID |
-| `GET` | `/lists/{id}/tasks` | Obtener tareas de una lista |
-| `POST` | `/lists` | Crear lista |
-| `PATCH` | `/lists/{id}` | Actualizar título o descripción |
-| `PATCH` | `/lists/{id}/restore` | Restaurar lista eliminada |
+| Method | Route | Description |
+|--------|-------|-------------|
+| `GET` | `/lists` | List active lists (with search and pagination) |
+| `GET` | `/lists/deleted` | List deleted lists |
+| `GET` | `/lists/{id}` | Get list by ID |
+| `GET` | `/lists/{id}/tasks` | Get tasks in a list |
+| `POST` | `/lists` | Create list |
+| `PATCH` | `/lists/{id}` | Update title or description |
+| `PATCH` | `/lists/{id}/restore` | Restore deleted list |
 | `DELETE` | `/lists/{id}` | Soft delete |
-| `DELETE` | `/lists/{id}/hard` | Hard delete (permanente) |
+| `DELETE` | `/lists/{id}/hard` | Hard delete (permanent) — must be soft-deleted first |
 
 ---
 
@@ -102,26 +122,26 @@ fastask/
 
 ---
 
-## Arrancar el proyecto
+## Running the project
 
-### Desde GHCR (recomendado)
+### From GHCR (recommended)
 
 ```bash
 docker pull ghcr.io/nico-barroso/fastask:latest
 docker run -p 8000:8000 ghcr.io/nico-barroso/fastask:latest
 ```
 
-### Con Docker
+### With Docker
 
 ```bash
 docker compose up
 ```
 
-### Sin Docker
+### Without Docker
 
 ```bash
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
-La documentación interactiva estará disponible en `http://localhost:8000/docs`.
+Interactive documentation will be available at `http://127.0.0.1:8000/docs`.

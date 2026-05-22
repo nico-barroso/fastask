@@ -1,9 +1,13 @@
 services:
   task-api:
-    build: .
-    container_name: fastak-api-container
+    build:
+      context: .
+    container_name: fastask-api-container
     ports:
       - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
     volumes:
       - ./data:/app/data
       - .:/app
